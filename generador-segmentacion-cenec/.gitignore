@@ -1,0 +1,9 @@
+archivos_trabajo
+croquis
+listado
+croquis_listado
+imagenes
+
+.idea
+*.pyc
+.~*

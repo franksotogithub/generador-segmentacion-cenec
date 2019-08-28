@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fafa54ac-20e7-4650-983f-4ed47cb5672a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../criminalidad_geocode_espacial/utils/query_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/autocompleter/css/autocomplete.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/autocompleter/js/jquery.autocomplete.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/css/select2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/css/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/af.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/bs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/dsb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/hi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/hsb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/hy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/km.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ms.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/nb.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/pt-BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/sr-Cyrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/tk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/zh-CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/i18n/zh-TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/select2.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/select2.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/select2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/select2/js/select2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/sweetalert/css/sweetalert.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/sweetalert/js/sweetalert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/additional-methods.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/additional-methods.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/jquery.validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_az.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_az.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_bg.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_bg.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_bn_BD.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_bn_BD.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ca.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ca.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_cs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_da.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_da.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_de.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_el.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_el.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_es.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_es.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_es_AR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_es_AR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_es_PE.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_es_PE.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_et.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_et.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_eu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_eu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_fa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_fa.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_fi.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_fr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_fr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ge.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ge.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_gl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_gl.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_he.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_he.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_hr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_hr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_hu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_hu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_hy_AM.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_hy_AM.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_id.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_id.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_is.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_is.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_it.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ja.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ja.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ka.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ka.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_kk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_kk.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ko.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ko.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_lt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_lt.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_lv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_lv.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_mk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_mk.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_my.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_my.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_nl.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_no.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_no.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_pl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_pl.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_pt_BR.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_pt_BR.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_pt_PT.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_pt_PT.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ro.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ro.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ru.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ru.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_si.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_si.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sk.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sl.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sr_lat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sr_lat.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_sv.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_th.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_th.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_tj.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_tj.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_tr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_tr.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_uk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_uk.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ur.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_ur.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_vi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_vi.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_zh.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_zh.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_zh_TW.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/messages_zh_TW.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_de.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_de.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_es_CL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_es_CL.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_fi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_fi.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_it.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_it.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_nl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_nl.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_pt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador/libs/validation/localization/methods_pt.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../criminalidad_piloto_buscador_2/templates/index.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$segmentacion.coverage" NAME="segmentacion Coverage Results" MODIFIED="1567031978003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$listado_urbano.coverage" NAME="listado_urbano Coverage Results" MODIFIED="1566926759457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$cnx.coverage" NAME="cnx Coverage Results" MODIFIED="1566846866183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bd" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-832834533">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="Pipfile" value="1" />
+          <entry key="gitignore" value="1" />
+          <entry key="py" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="10488" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="10487" />
+          <entry key="SQL" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="generador-segmentacion-cenec" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/query.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="157" selection-start-line="157" selection-end-line="157" />
+              <folding>
+                <element signature="e#61#101#0" expanded="true" />
+                <element signature="e#1063#1342#0" />
+                <element signature="e#2163#4912#0" />
+                <element signature="e#5022#5129#0" />
+                <element signature="e#40531#40782#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/segmentacion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3160">
+              <caret line="328" lean-forward="true" selection-start-line="328" selection-end-line="328" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#4465#7156#0" />
+                <element signature="e#7205#7492#0" />
+                <element signature="e#7532#7921#0" />
+                <element signature="e#7973#8940#0" />
+                <element signature="e#8999#10131#0" />
+                <element signature="e#10299#10880#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>050</find>
+      <find>crear_limite_aeus</find>
+      <find>flag_</find>
+      <find>print</find>
+      <find>croquis_ruta</find>
+    </findStrings>
+    <dirStrings>
+      <dir>D:\Proyectos\generador-segmentacion-cenec\croquis</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Pipfile" />
+        <option value="$PROJECT_DIR$/utils/query.py" />
+        <option value="$PROJECT_DIR$/bd/cnx.py" />
+        <option value="$PROJECT_DIR$/utils/listado_urbano.py" />
+        <option value="$PROJECT_DIR$/conf/config.py" />
+        <option value="$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py" />
+        <option value="$PROJECT_DIR$/utils/segmentacion.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="generador-segmentacion-cenec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generador-segmentacion-cenec" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proyectos\generador-segmentacion-cenec" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Proyectos\generador-segmentacion-cenec" />
+      <recent name="D:\Proyectos\generador-segmentacion-cenec\utils" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.segmentacion">
+    <configuration name="cnx" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="generador-segmentacion-cenec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bd" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bd/cnx.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="listado_urbano" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="generador-segmentacion-cenec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/listado_urbano.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="segmentacion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="generador-segmentacion-cenec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/segmentacion.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.segmentacion" />
+      <item itemvalue="Python.cnx" />
+      <item itemvalue="Python.listado_urbano" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.segmentacion" />
+        <item itemvalue="Python.listado_urbano" />
+        <item itemvalue="Python.cnx" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fafa54ac-20e7-4650-983f-4ed47cb5672a" name="Default Changelist" comment="" />
+      <created>1566492359144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566492359144</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" sideWeight="0.23757765" side_tool="true" visible="true" weight="0.6772429" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7624224" visible="true" weight="0.6772429" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29540482" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/utils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="2433" selection-start-line="2433" selection-end-line="2433" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bd/cnx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#71#1085#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/ArcGIS10.3/Lib/site-packages/reportlab/lib/pagesizes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/ArcGIS10.3/Lib/site-packages/reportlab/platypus/tables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="1074" selection-start-line="1074" selection-end-line="1074" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="157" selection-start-line="157" selection-end-line="157" />
+          <folding>
+            <element signature="e#61#101#0" expanded="true" />
+            <element signature="e#1063#1342#0" />
+            <element signature="e#2163#4912#0" />
+            <element signature="e#5022#5129#0" />
+            <element signature="e#40531#40782#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/segmentacion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3160">
+          <caret line="328" lean-forward="true" selection-start-line="328" selection-end-line="328" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#4465#7156#0" />
+            <element signature="e#7205#7492#0" />
+            <element signature="e#7532#7921#0" />
+            <element signature="e#7973#8940#0" />
+            <element signature="e#8999#10131#0" />
+            <element signature="e#10299#10880#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>
