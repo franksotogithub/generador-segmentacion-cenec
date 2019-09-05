@@ -168,9 +168,6 @@ def expresion_sql(data,campos):
     return where_expression
 
 
-
-
-
 def crear_fraseo(texto,tamanio_max):
     texto="OBSERVACIONES: "+texto
     limite = tamanio_max

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from utils.query import to_dict
 from utils.listado_urbano import listado_ruta , listado_brigada
 from bd import cnx
@@ -205,16 +206,16 @@ class SegmentacionCENEC:
 
 
             if count == 1:
-                insert_sql = """ insert into [SEGM_U_AEU_MANZANA](ubigeo,zona,aeu,manzana,cant_est)  values """
-            insert_sql = """{insert_sql} ('{ubigeo}','{zona}','{aeu}','{manzana}',{cant_est}) """.format(insert_sql=insert_sql,
+                insert_sql = u""" insert into [SEGM_U_AEU_MANZANA](ubigeo,zona,aeu,manzana,cant_est)  values """
+            insert_sql = u"""{insert_sql} ('{ubigeo}','{zona}','{aeu}','{manzana}',{cant_est}) """.format(insert_sql=insert_sql,
                                                                                              ubigeo=aeu['UBIGEO'],
                                                                                              zona=aeu['ZONA'],
-                                                                                             aeu=aeu['AEU'],
+                                                                                             aeu=str(aeu['AEU']).zfill(3),
                                                                                              manzana=aeu['MANZANA'],
                                                                                              cant_est=int(aeu['CANT_EST']))
             if count < len(self.list_aeu_manzanas_final):
-                insert_sql = """{insert_sql},""".format(insert_sql=insert_sql)
-
+                insert_sql = u"""{insert_sql},""".format(insert_sql=insert_sql)
+        print insert_sql
         self.cursor.execute(insert_sql)
         self.conn.commit()
 
@@ -224,10 +225,10 @@ class SegmentacionCENEC:
 
     def crear_limite_aeus(self):
         arcpy.env.overwriteOutput = True
-        path_manzana=path.join(self.path_trabajo, 'tb_manzana')
-        arcpy.MakeFeatureLayer_management(path_manzana, "tb_manzana")
+        path_manzana=path.join(self.path_trabajo, 'tb_manzana_procesar')
+        arcpy.MakeFeatureLayer_management(path_manzana, "tb_manzana_procesar")
         for aeu in self.list_aeu:
-            print 'self.list_aeu>>>',self.list_aeu
+
             list_aeu_man=[[d['UBIGEO'],d['ZONA'],d['MANZANA']] for d in self.list_aeu_manzanas if(d['AEU']==aeu['AEU'] and d['UBIGEO']==aeu['UBIGEO'] and d['ZONA']== aeu['ZONA'] )]
             where_manzanas = expresion.expresion_2(list_aeu_man,[["UBIGEO", "TEXT"], ["ZONA", "TEXT"], ["MANZANA", "TEXT"]])
             tb_manzana_selec=arcpy.SelectLayerByAttribute_management("tb_manzana_procesar", "NEW_SELECTION", where_manzanas)

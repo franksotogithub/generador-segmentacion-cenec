@@ -22,12 +22,12 @@ def obtener_zonas(cursor,cnn,cant_zonas):
                 
                 select top {cant_zonas} a.CODDPTO,a.CODPROV,a.CODDIST,a.UBIGEO,a.ZONA,a.CODCCPP,a.DEPARTAMENTO,a.PROVINCIA,a.DISTRITO,a.NOMCCPP from DBO.TB_ZONA a
                 where a.flag_proc_segm=0 
-                order by 1,2
+                order by 1,2,3,4,5
                 
                 insert @table
                 select top {cant_zonas} a.CODDPTO,a.CODPROV,a.CODDIST,a.UBIGEO,a.ZONA,a.CODCCPP,a.DEPARTAMENTO,a.PROVINCIA,a.DISTRITO,a.NOMCCPP from DBO.TB_ZONA a
                 where a.flag_proc_segm = 0 
-                order by 1,2
+                order by 1,2,3,4,5
                 
                 update  a
                 set a.flag_proc_segm = 2
@@ -51,7 +51,7 @@ def actualizar_flag_proc_segm(cursor,cnn,ubigeo,zona,flag,equipo='',error=''):
     end
     """.format(ubigeo=ubigeo,zona=zona,flag=flag,equipo=equipo,error=error)
 
-    print 'QUERY_ACTUALIZAR_FLAG_PROC_SEGM>>>',QUERY_ACTUALIZAR_FLAG_PROC_SEGM
+
     cursor.execute(QUERY_ACTUALIZAR_FLAG_PROC_SEGM)
     cnn.commit()
 
