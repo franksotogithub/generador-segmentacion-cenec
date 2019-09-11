@@ -2,75 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fafa54ac-20e7-4650-983f-4ed47cb5672a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plantilla_croquis/rutas.mxd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../criminalidad_geocode_espacial/utils/query_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/../criminalidad_geocode_espacial/utils/query_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla-croquis/CroquisUrbanoAEUCorregido.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/CroquisUrbanoAEUCorregido.mxd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla-croquis/CroquisUrbanoZona.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/CroquisUrbanoZona.mxd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla-croquis/croquis_brigada.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/croquis_brigada.mxd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantilla-croquis/croquis_empadronador.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/croquis_empadronador.mxd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/aeus.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/aeus.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/aeus_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/aeus_puntos.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/ejes_viales.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/ejes_viales.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/frentes.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/frentes.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/frentes_final.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/frentes_final.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/frentes_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/frentes_puntos.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/manzana_final.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/manzana_final.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/manzana_final2.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/manzana_final2.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/mapa_secciones_aeus_lineas.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/mapa_secciones_aeus_lineas.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/mapa_secciones_aeus_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/mapa_secciones_aeus_puntos.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_colores.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_colores.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas2.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas2.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas_multifamiliar.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas_multifamiliar.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas_multifamiliar_2000.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas_multifamiliar_2000.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_puntos.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/seccion.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/seccion.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/secciones.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/secciones.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/sitios_interes.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/sitios_interes.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/tb_frentes.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/tb_frentes.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/vivienda_final.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/vivienda_final.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plantillas-layers/zonas.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/zonas.lyr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001-0001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001-0002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-001-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001-0003.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-002-0004.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-003-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003-0005.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-003-0006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003-0006.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-003-0007.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003-0007.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-004-0008.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004-0008.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-004-0009.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004-0009.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-004-0010.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004-0010.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/15-004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-001-0001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-001-0002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-002-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002-0003.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002-0004.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-002-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002-0005.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/20-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001-0001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001-0002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-001-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001-0003.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002-0004.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-002-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002-0005.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-002-0006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002-0006.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/21-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001-0001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001-0002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-001-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001-0003.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002-0004.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-002-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002-0005.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-002-0006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002-0006.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/programaciones/25-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/croquis_listado.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/croquis_listado.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/listado_urbano.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/listado_urbano.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,34 +26,34 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.15" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Pipfile" value="1" />
-          <entry key="gitignore" value="2" />
+          <entry key="gitignore" value="3" />
           <entry key="py" value="40" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="Python" value="40" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="138" />
+          <entry key="gitignore" value="146" />
           <entry key="py" value="17780" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="138" />
+          <entry key="PLAIN_TEXT" value="146" />
           <entry key="Python" value="17779" />
           <entry key="SQL" value="1" />
         </counts>
@@ -134,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/query.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
+            <state relative-caret-position="1000">
               <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
             </state>
           </provider>
@@ -143,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python_addins/rutas/Install/rutas_addin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="225">
               <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -155,35 +89,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1750">
+            <state relative-caret-position="6475">
               <caret line="276" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="e#61#101#0" expanded="true" />
                 <element signature="e#1739#2000#0" />
-                <element signature="e#2063#3039#0" />
-                <element signature="e#3078#9332#0" />
-                <element signature="e#9375#15657#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="328" lean-forward="true" selection-start-line="328" selection-end-line="328" />
+              <folding>
+                <element signature="e#24#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-327">
-              <caret line="325" column="41" lean-forward="true" selection-start-line="325" selection-start-column="41" selection-end-line="325" selection-end-column="41" />
-              <folding>
-                <element signature="e#24#55#0" expanded="true" />
-                <element signature="e#5759#6378#0" />
-                <element signature="e#10550#10946#0" />
-                <element signature="e#11910#13134#0" />
-                <element signature="e#14364#16141#0" />
-                <element signature="e#14956#15263#0" />
-                <element signature="e#15315#15935#0" />
-                <element signature="e#19119#23884#0" />
-                <element signature="e#23970#28026#0" />
-              </folding>
+            <state relative-caret-position="125">
+              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -191,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
+            <state relative-caret-position="325">
               <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
@@ -200,7 +132,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
+            <state relative-caret-position="171450">
               <caret line="6861" selection-start-line="6861" selection-end-line="6861" />
             </state>
           </provider>
@@ -261,7 +193,6 @@
       <list>
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/bd/cnx.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/utils/segmentacion.py" />
         <option value="$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py" />
         <option value="$PROJECT_DIR$/utils/query.py" />
@@ -270,6 +201,7 @@
         <option value="$PROJECT_DIR$/conf/config.py" />
         <option value="$PROJECT_DIR$/utils/listado_urbano.py" />
         <option value="$PROJECT_DIR$/utils/croquis_listado.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -280,10 +212,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="449" />
-    <option name="y" value="96" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
-    <option name="height" value="735" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -291,6 +222,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -312,7 +244,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -485,10 +416,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7619048" visible="true" weight="0.18923241" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7619048" visible="true" weight="0.19365427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.23809524" side_tool="true" weight="0.040511727" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -501,8 +432,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.18443497" side_tool="true" visible="true" weight="0.3629469" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" weight="0.3726977" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.18380743" side_tool="true" visible="true" weight="0.28774616" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.81619257" visible="true" weight="0.28774616" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -586,9 +517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,9 +527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="e#24#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -609,12 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="169" selection-start-line="169" selection-end-line="169" />
-          <folding>
-            <element signature="e#406#1731#0" />
-            <element signature="e#1768#4068#0" />
-            <element signature="e#4107#6379#0" />
-            <element signature="e#6426#7371#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -622,27 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#8064#10002#0" />
-            <element signature="e#10115#10476#0" />
-            <element signature="e#10850#11239#0" />
-            <element signature="e#11290#12049#0" />
-            <element signature="e#13591#13672#0" />
-            <element signature="e#13715#15435#0" />
-            <element signature="e#15485#23806#0" />
-            <element signature="e#18625#22466#0" />
-            <element signature="e#19551#21454#0" />
-            <element signature="e#23856#28159#0" />
-            <element signature="e#28211#31783#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -650,53 +548,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/python_addins/rutas/config.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="6861" selection-start-line="6861" selection-end-line="6861" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1750">
-          <caret line="276" selection-start-line="276" selection-end-line="276" />
-          <folding>
-            <element signature="e#61#101#0" expanded="true" />
-            <element signature="e#1739#2000#0" />
-            <element signature="e#2063#3039#0" />
-            <element signature="e#3078#9332#0" />
-            <element signature="e#9375#15657#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/query.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
+        <state relative-caret-position="1000">
           <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/python_addins/rutas/Install/rutas_addin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="225">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
@@ -704,21 +571,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6475">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
+          <folding>
+            <element signature="e#61#101#0" expanded="true" />
+            <element signature="e#1739#2000#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171450">
+          <caret line="6861" selection-start-line="6861" selection-end-line="6861" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-327">
-          <caret line="325" column="41" lean-forward="true" selection-start-line="325" selection-start-column="41" selection-end-line="325" selection-end-column="41" />
+        <state relative-caret-position="100">
+          <caret line="328" lean-forward="true" selection-start-line="328" selection-end-line="328" />
           <folding>
             <element signature="e#24#55#0" expanded="true" />
-            <element signature="e#5759#6378#0" />
-            <element signature="e#10550#10946#0" />
-            <element signature="e#11910#13134#0" />
-            <element signature="e#14364#16141#0" />
-            <element signature="e#14956#15263#0" />
-            <element signature="e#15315#15935#0" />
-            <element signature="e#19119#23884#0" />
-            <element signature="e#23970#28026#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
         </state>
       </provider>
     </entry>

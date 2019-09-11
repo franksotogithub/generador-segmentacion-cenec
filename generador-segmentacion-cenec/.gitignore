@@ -1,11 +1,11 @@
-archivos_trabajo
-croquis
-listado
-croquis_listado
-programaciones
-plantillas-layers
-plantilla-croquis
-imagenes
+archivos_trabajo/
+croquis/
+listado/
+croquis_listado/
+programaciones/
+plantillas-layers/
+plantilla-croquis/
+imagenes/
 
 .idea
 *.pyc
