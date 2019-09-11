@@ -93,9 +93,8 @@ def cuerpo_hoja_listado_ruta(elementos,data,columnas,i):
               u'{}'.format(x['PROVINCIA']),
               u'{}'.format(x['DISTRITO']),
               u'{}'.format(x['CODCCPP']),
-              u'{}'.format(x['NOMCCPP']),
+              u'{}'.format(x['NOMCCCPP']),
               u'{}'.format(x['PERIODO']),
-              u'1',
               u'{}'.format(x['ZONA']),
               u'{}'.format(x['MZ']),
               u'{}'.format(x['CANT_EST'])
@@ -130,6 +129,7 @@ def listado_ruta(info, output):
     brigada = cab["BRIGADA"]
     ruta = cab["RUTA"]
     empadronador = ""
+    cod_emp = cab["EMP"]
 
     Plantilla = getSampleStyleSheet()
 
@@ -160,16 +160,14 @@ def listado_ruta(info, output):
 
     Filas = [
         ['', '', '', '', 'DOC.CENEC.03.08'],
-        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRE Y APELLIDO DEL EMPADRONADOR</b>',h11)],
+        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRES Y APELLIDOS DEL EMPADRONADOR</b>',h11)],
         [Paragraph(u'<b>SEDE OPERATIVA: </b>', h1), u'{}'.format(coddpto), u'{}'.format(departamento), '',u'{}'.format(empadronador)],
         [Paragraph(u'<b>BRIGADA: </b>', h1), u'{}'.format(brigada), '', '', ''],
         [Paragraph(u'<b>RUTA: </b>', h1), u'{}'.format(ruta),'', '', ''],
         ]
 
-    #Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 7 * cm,  10 * cm],
-    #              rowHeights=[0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm])
 
-    Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 2 * cm, 7.5 * cm],
+    Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 1 * cm, 7.5 * cm],
                   rowHeights=[0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm])
 
 
@@ -195,13 +193,13 @@ def listado_ruta(info, output):
     CabeceraSecundaria = [
          [Paragraph(e, h3) for e in [u"<strong>Nº</strong>",u"<strong>UBIGEO</strong>", u"<strong>DEPARTAMENTO</strong>",
                                         u"<strong>PROVINCIA</strong>",u"<strong>DISTRITO</strong>",u"<strong>COD. CCPP</strong>",u"<strong>CENTRO  POBLADO</strong>",
-                                        u"<strong>PER.</strong>",u"<strong>UBICACIÓN CENSAL</strong>","","",u"<strong>TOT. EST.</strong>"
+                                        u"<strong>PER.</strong>",u"<strong>UBICACIÓN CENSAL</strong>","",u"<strong>TOT. EST.</strong>"
           ]],
-          [Paragraph(e, h3) for e in["","","","","","","","",u"ÁREA","ZONA","MZ",""]],
+          [Paragraph(e, h3) for e in["","","","","","","","","ZONA","MZ",""]],
         ]
 
 
-    columnas = [1.2 * cm, 1.5 * cm, 2.8 * cm, 2.8 * cm, 3.5 * cm, 1.2 * cm, 2.1 * cm, 1 * cm, 1.2 * cm, 1.2 * cm, 1 * cm ,1*cm]
+    columnas = [1.2 * cm, 1.5 * cm, 2.8 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.1 * cm, 1 * cm, 1.2 * cm, 1 * cm ,1*cm]
 
     Tabla1 = Table(CabeceraSecundaria, colWidths=columnas)
 
@@ -219,8 +217,8 @@ def listado_ruta(info, output):
             ('SPAN', (5, 0), (5, 1)),
             ('SPAN', (6, 0), (6, 1)),
             ('SPAN', (7, 0), (7, 1)),
-            ('SPAN', (8, 0), (10, 0)),
-            ('SPAN', (11, 0), (11, 1)),
+            ('SPAN', (8, 0), (9, 0)),
+            ('SPAN', (10, 0), (10, 1)),
 
         ]
     ))
@@ -261,10 +259,10 @@ def listado_ruta(info, output):
                             bottomMargin=0.5 * cm,)
 
 
-    PiePagina = [[Paragraph(u'{}'.format("EMPADRONADOR"), h3)],
-                 [Paragraph('{}'.format("Todos los establecimientos que se encuentran ubicados en las manzanas que conforman su área de trabajo, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente"),h3)]]
+    PiePagina = [[Paragraph(u'{}'.format(u"EMPADRONADOR"), h3)],
+                 [Paragraph(u'{}'.format(u"Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente."),h3)]]
 
-    Tabla_Pie = Table(PiePagina, colWidths = [20.5 * cm],rowHeights=[0.8 * cm,1.6* cm])
+    Tabla_Pie = Table(PiePagina, colWidths = [19.5 * cm],rowHeights=[0.8 * cm,1.6* cm])
 
     Tabla_Pie.setStyle( TableStyle([
         ('GRID', (0, 0), (-1, -1), 1, colors.black),
@@ -275,7 +273,6 @@ def listado_ruta(info, output):
     Elementos.append(Tabla_Pie)
     pdf.build(Elementos)
     return output
-
 
 
 def listado_brigada(info, output):
@@ -316,12 +313,12 @@ def listado_brigada(info, output):
 
     Filas = [
         ['', '', '', '', 'DOC.CENEC.03.10'],
-        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRE Y APELLIDO DEL JEFE DE BRIGADA</b>',h11)],
+        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA</b>',h11)],
         [Paragraph(u'<b>SEDE OPERATIVA: </b>', h1), u'{}'.format(coddpto), u'{}'.format(departamento), '',u'{}'.format(empadronador)],
         [Paragraph(u'<b>BRIGADA: </b>', h1), u'{}'.format(brigada), '', '', ''],
         ]
 
-    Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 7 * cm,  10 * cm],
+    Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 7 * cm,  8.9 * cm],
                   rowHeights=[0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm])
 
 
@@ -347,12 +344,12 @@ def listado_brigada(info, output):
     CabeceraSecundaria = [
          [Paragraph(e, h3) for e in [u"<strong>Nº</strong>",u"<strong>COD.EMP.</strong>",u"<strong>UBIGEO</strong>", u"<strong>DEPARTAMENTO</strong>",
                                         u"<strong>PROVINCIA</strong>",u"<strong>DISTRITO</strong>",u"<strong>COD. CCPP</strong>",u"<strong>CENTRO POBLADO</strong>",
-                                        u"<strong>PER.</strong>",u"<strong>UBICACIÓN CENSAL</strong>","","",u"<strong>TOT. EST.</strong>"
+                                        u"<strong>PER.</strong>",u"<strong>UBICACIÓN CENSAL</strong>","",u"<strong>TOT. EST.</strong>"
           ]],
-          [Paragraph(e, h3) for e in["","","","","","","","","",u"ÁREA","ZONA","MZ",""]],
+          [Paragraph(e, h3) for e in["","","","","","","","","","ZONA","MZ",""]],
         ]
 
-    columnas = [1.2* cm, 1.7*cm,1.5 * cm, 3 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.3 * cm, 0.9 * cm, 1.1 * cm, 1.2 * cm, 6.4 * cm ,1*cm]
+    columnas = [1.2* cm, 1.7*cm,1.5 * cm, 3 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.3 * cm, 0.9 * cm,  1.2 * cm, 6.4 * cm ,1*cm]
 
     Tabla1 = Table(CabeceraSecundaria, colWidths=columnas)
 
@@ -371,8 +368,8 @@ def listado_brigada(info, output):
             ('SPAN', (6, 0), (6, 1)),
             ('SPAN', (7, 0), (7, 1)),
             ('SPAN', (8, 0), (8, 1)),
-            ('SPAN', (9, 0), (11, 0)),
-            ('SPAN', (12, 0), (12, 1)),
+            ('SPAN', (9, 0), (10, 0)),
+            ('SPAN', (11, 0), (11, 1)),
 
         ]
     ))
@@ -394,9 +391,8 @@ def listado_brigada(info, output):
                      u'{}'.format(x['PROVINCIA']),
                      u'{}'.format(x['DISTRITO']) ,
                      u'{}'.format(x['CODCCPP']),
-                     u'{}'.format(x['NOMCCPP']),
+                     u'{}'.format(x['NOMCCCPP']),
                      u'{}'.format(x['PERIODO']),
-                     u'1',
                      u'{}'.format(x['ZONA']),
                      u'{}'.format(x['MANZANAS']),
                      u'{}'.format(x['CANT_EST'])
@@ -425,10 +421,10 @@ def listado_brigada(info, output):
                             bottomMargin=0.5 * cm,)
 
 
-    PiePagina = [[Paragraph(u'{}'.format("JEFE DE BRIGADA"), h3)],
-                 [Paragraph('{}'.format("Todos los establecimientos que se encuentran ubicados en las manzanas que conforman su área de trabajo, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente"),h3)]]
+    PiePagina = [[Paragraph(u'{}'.format(u"JEFE DE BRIGADA"), h3)],
+                 [Paragraph(u'{}'.format(u"Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente"),h3)]]
 
-    Tabla_Pie = Table(PiePagina, colWidths = [28 * cm],rowHeights=[0.8 * cm,1.6* cm])
+    Tabla_Pie = Table(PiePagina, colWidths = [26.8 * cm],rowHeights=[0.8 * cm,1.6* cm])
 
     Tabla_Pie.setStyle( TableStyle([
         ('GRID', (0, 0), (-1, -1), 1, colors.black),

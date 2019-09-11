@@ -2,12 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fafa54ac-20e7-4650-983f-4ed47cb5672a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/plantilla_croquis/rutas.mxd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../criminalidad_geocode_espacial/utils/query_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/../criminalidad_geocode_espacial/utils/query_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla-croquis/CroquisUrbanoAEUCorregido.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/CroquisUrbanoAEUCorregido.mxd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla-croquis/CroquisUrbanoZona.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/CroquisUrbanoZona.mxd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla-croquis/croquis_brigada.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/croquis_brigada.mxd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantilla-croquis/croquis_empadronador.mxd" beforeDir="false" afterPath="$PROJECT_DIR$/plantilla_croquis/croquis_empadronador.mxd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/aeus.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/aeus.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/aeus_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/aeus_puntos.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/ejes_viales.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/ejes_viales.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/frentes.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/frentes.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/frentes_final.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/frentes_final.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/frentes_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/frentes_puntos.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/manzana_final.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/manzana_final.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/manzana_final2.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/manzana_final2.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/mapa_secciones_aeus_lineas.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/mapa_secciones_aeus_lineas.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/mapa_secciones_aeus_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/mapa_secciones_aeus_puntos.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_colores.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_colores.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas2.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas2.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas_multifamiliar.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas_multifamiliar.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_lineas_multifamiliar_2000.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_lineas_multifamiliar_2000.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/rutas_puntos.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/rutas_puntos.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/seccion.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/seccion.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/secciones.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/secciones.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/sitios_interes.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/sitios_interes.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/tb_frentes.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/tb_frentes.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/vivienda_final.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/vivienda_final.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plantillas-layers/zonas.lyr" beforeDir="false" afterPath="$PROJECT_DIR$/plantillas_layers/zonas.lyr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001-0001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001-0002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-001-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001-0003.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-002-0004.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-003-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003-0005.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-003-0006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003-0006.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-003-0007.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003-0007.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-003.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-004-0008.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004-0008.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-004-0009.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004-0009.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-004-0010.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004-0010.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/15-004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/15-004.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-001-0001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-001-0002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-002-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002-0003.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002-0004.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-002-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002-0005.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/20-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/20-002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001-0001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001-0002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-001-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001-0003.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002-0004.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-002-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002-0005.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-002-0006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002-0006.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/21-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/21-002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-001-0001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001-0001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-001-0002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001-0002.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-001-0003.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001-0003.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-001.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-001.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-002-0004.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002-0004.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-002-0005.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002-0005.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-002-0006.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002-0006.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/programaciones/25-002.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/programaciones/25-002.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/croquis_listado.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/croquis_listado.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/procesar_segmentacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/procesar_segmentacion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/query.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/query.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/segmentacion.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/segmentacion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/listado_urbano.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/listado_urbano.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +79,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$procesar_segmentacion.coverage" NAME="procesar_segmentacion Coverage Results" MODIFIED="1567646270692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$procesar_segmentacion.coverage" NAME="procesar_segmentacion Coverage Results" MODIFIED="1567719224577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$segmentacion.coverage" NAME="segmentacion Coverage Results" MODIFIED="1567633067597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$listado_urbano.coverage" NAME="listado_urbano Coverage Results" MODIFIED="1566926759457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$cnx.coverage" NAME="cnx Coverage Results" MODIFIED="1566846866183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bd" />
-    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$croquis_listado.coverage" NAME="croquis_listado Coverage Results" MODIFIED="1567644065728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$makeaddin.coverage" NAME="makeaddin Coverage Results" MODIFIED="1567719877369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python_addins/rutas" />
+    <SUITE FILE_PATH="coverage/generador_segmentacion_cenec$croquis_listado.coverage" NAME="croquis_listado Coverage Results" MODIFIED="1568167652962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-832834533">
@@ -36,25 +100,27 @@
         <counts>
           <entry key="Pipfile" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="py" value="30" />
+          <entry key="py" value="40" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="30" />
+          <entry key="Python" value="40" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="138" />
-          <entry key="py" value="15568" />
+          <entry key="py" value="17780" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="138" />
-          <entry key="Python" value="15567" />
+          <entry key="Python" value="17779" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -68,22 +134,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/query.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="325">
               <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-              <folding>
-                <element signature="e#323#564#0" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utils/procesar_segmentacion.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/python_addins/rutas/Install/rutas_addin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+            <state relative-caret-position="250">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding>
-                <element signature="e#24#41#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,11 +155,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1033">
-              <caret line="352" column="9" selection-start-line="352" selection-start-column="9" selection-end-line="352" selection-end-column="9" />
+            <state relative-caret-position="1750">
+              <caret line="276" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="e#61#101#0" expanded="true" />
                 <element signature="e#1739#2000#0" />
+                <element signature="e#2063#3039#0" />
+                <element signature="e#3078#9332#0" />
+                <element signature="e#9375#15657#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-327">
+              <caret line="325" column="41" lean-forward="true" selection-start-line="325" selection-start-column="41" selection-end-line="325" selection-end-column="41" />
+              <folding>
+                <element signature="e#24#55#0" expanded="true" />
+                <element signature="e#5759#6378#0" />
+                <element signature="e#10550#10946#0" />
+                <element signature="e#11910#13134#0" />
+                <element signature="e#14364#16141#0" />
+                <element signature="e#14956#15263#0" />
+                <element signature="e#15315#15935#0" />
+                <element signature="e#19119#23884#0" />
+                <element signature="e#23970#28026#0" />
               </folding>
             </state>
           </provider>
@@ -105,81 +191,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="21" selection-start-line="9" selection-end-line="9" selection-end-column="21" />
+            <state relative-caret-position="179">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py">
+        <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="169" selection-start-line="169" selection-end-line="169" />
-              <folding>
-                <element signature="e#406#1731#0" />
-                <element signature="e#1768#4068#0" />
-                <element signature="e#4107#6379#0" />
-                <element signature="e#6426#7371#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/segmentacion.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#8064#10002#0" />
-                <element signature="e#10115#10476#0" />
-                <element signature="e#10850#11239#0" />
-                <element signature="e#11290#12049#0" />
-                <element signature="e#13591#13672#0" />
-                <element signature="e#13715#15435#0" />
-                <element signature="e#15485#23806#0" />
-                <element signature="e#18625#22466#0" />
-                <element signature="e#19551#21454#0" />
-                <element signature="e#23856#28159#0" />
-                <element signature="e#28211#31783#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="564" selection-start-line="564" selection-end-line="564" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#464#32780#0" />
-                <element signature="e#576#1467#0" />
-                <element signature="e#2563#4215#0" />
-                <element signature="e#4254#5646#0" />
-                <element signature="e#5688#5927#0" />
-                <element signature="e#5974#6356#0" />
-                <element signature="e#6410#7028#0" />
-                <element signature="e#7097#7758#0" />
-                <element signature="e#7885#10576#0" />
-                <element signature="e#10623#10910#0" />
-                <element signature="e#15745#24044#0" />
-                <element signature="e#16524#16908#0" />
-                <element signature="e#24093#28396#0" />
-                <element signature="e#28448#32020#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="205">
+              <caret line="6861" selection-start-line="6861" selection-end-line="6861" />
             </state>
           </provider>
         </entry>
@@ -195,12 +217,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>050</find>
-      <find>crear_limite_aeus</find>
-      <find>flag_</find>
-      <find>print</find>
-      <find>croquis_ruta</find>
-      <find>||</find>
       <find>path_plantilla_croquis_empadronador</find>
       <find>ruta</find>
       <find>h5</find>
@@ -210,12 +226,31 @@
       <find>el ar</find>
       <find>área</find>
       <find>add_fields&gt;</find>
-      <find>importar_capas</find>
       <find>Ñ</find>
+      <find>{cod_oper}-{sede}-{brigada}-{ruta}</find>
+      <find>Todos</find>
+      <find>NOMBRE</find>
+      <find>NOMBRE</find>
+      <find>ÁREA</find>
+      <find>croquis_ruta</find>
+      <find>SEGM_U_EMPADRONADOR</find>
+      <find>SEGM_U_RUTA_MANZANA</find>
+      <find>CANT_EST</find>
+      <find>obten</find>
+      <find>llave</find>
+      <find>nomccp</find>
+      <find>nomccpp</find>
+      <find>croquis_brigada</find>
+      <find>FASE</find>
+      <find>obtener_manzanas</find>
+      <find>WHERE</find>
+      <find>empadronador</find>
+      <find>query_rutas</find>
+      <find>importar_capas</find>
     </findStrings>
     <dirStrings>
-      <dir>D:\Proyectos\generador-segmentacion-cenec\croquis</dir>
       <dir>D:\Proyectos\generador-segmentacion-cenec\croquis_listado</dir>
+      <dir>D:\Proyectos\generador-segmentacion-cenec\croquis</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -226,14 +261,15 @@
       <list>
         <option value="$PROJECT_DIR$/Pipfile" />
         <option value="$PROJECT_DIR$/bd/cnx.py" />
-        <option value="$PROJECT_DIR$/utils/listado_urbano.py" />
-        <option value="$PROJECT_DIR$/conf/config.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/utils/croquis_listado.py" />
         <option value="$PROJECT_DIR$/utils/segmentacion.py" />
         <option value="$PROJECT_DIR$/utils/expresiones_consulta_arcpy.py" />
         <option value="$PROJECT_DIR$/utils/query.py" />
         <option value="$PROJECT_DIR$/utils/procesar_segmentacion.py" />
+        <option value="$PROJECT_DIR$/python_addins/rutas/Install/rutas_addin.py" />
+        <option value="$PROJECT_DIR$/conf/config.py" />
+        <option value="$PROJECT_DIR$/utils/listado_urbano.py" />
+        <option value="$PROJECT_DIR$/utils/croquis_listado.py" />
       </list>
     </option>
   </component>
@@ -243,11 +279,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="615" />
-    <option name="y" value="378" />
-    <option name="width" value="553" />
-    <option name="height" value="513" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="449" />
+    <option name="y" value="96" />
+    <option name="width" value="974" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -265,6 +301,11 @@
             <path>
               <item name="generador-segmentacion-cenec" type="b2602c69:ProjectViewProjectNode" />
               <item name="generador-segmentacion-cenec" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="generador-segmentacion-cenec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="generador-segmentacion-cenec" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -276,7 +317,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dashboard-indicadores" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../generador-segmentacion-rural" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -302,29 +343,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.procesar_segmentacion">
-    <configuration name="cnx" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="generador-segmentacion-cenec" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bd" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bd/cnx.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.croquis_listado">
     <configuration name="croquis_listado" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="generador-segmentacion-cenec" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -361,6 +380,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/listado_urbano.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="makeaddin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="generador-segmentacion-cenec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_addins/rutas" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_addins/rutas/makeaddin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -415,18 +456,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.segmentacion" />
-      <item itemvalue="Python.cnx" />
       <item itemvalue="Python.listado_urbano" />
       <item itemvalue="Python.procesar_segmentacion" />
       <item itemvalue="Python.croquis_listado" />
+      <item itemvalue="Python.makeaddin" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.procesar_segmentacion" />
         <item itemvalue="Python.croquis_listado" />
+        <item itemvalue="Python.makeaddin" />
+        <item itemvalue="Python.procesar_segmentacion" />
         <item itemvalue="Python.segmentacion" />
         <item itemvalue="Python.listado_urbano" />
-        <item itemvalue="Python.cnx" />
       </list>
     </recent_temporary>
   </component>
@@ -444,15 +485,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="615" y="378" width="553" height="513" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7619048" visible="true" weight="0.7464503" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7619048" visible="true" weight="0.18923241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.23809524" side_tool="true" weight="0.040511727" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6592292" visible="true" weight="0.85" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.81556505" visible="true" weight="0.3629469" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -460,8 +501,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34077078" side_tool="true" visible="true" weight="0.85" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.26327193" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.18443497" side_tool="true" visible="true" weight="0.3629469" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" weight="0.3726977" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -554,24 +595,13 @@
     <entry file="file://$PROJECT_DIR$/conf/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.py">
+    <entry file="file://$PROJECT_DIR$/utils/procesar_segmentacion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="21" selection-start-line="9" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="6508" selection-start-line="6508" selection-end-line="6508" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state relative-caret-position="300">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#24#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -588,33 +618,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="564" selection-start-line="564" selection-end-line="564" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#464#32780#0" />
-            <element signature="e#576#1467#0" />
-            <element signature="e#2563#4215#0" />
-            <element signature="e#4254#5646#0" />
-            <element signature="e#5688#5927#0" />
-            <element signature="e#5974#6356#0" />
-            <element signature="e#6410#7028#0" />
-            <element signature="e#7097#7758#0" />
-            <element signature="e#7885#10576#0" />
-            <element signature="e#10623#10910#0" />
-            <element signature="e#15745#24044#0" />
-            <element signature="e#16524#16908#0" />
-            <element signature="e#24093#28396#0" />
-            <element signature="e#28448#32020#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/segmentacion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="110">
           <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -633,33 +639,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_addins/rutas/makeaddin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_addins/rutas/config.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://C:/Program Files (x86)/ArcGIS/Desktop10.3/arcpy/arcpy/management.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="6861" selection-start-line="6861" selection-end-line="6861" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils/listado_urbano.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1033">
-          <caret line="352" column="9" selection-start-line="352" selection-start-column="9" selection-end-line="352" selection-end-column="9" />
+        <state relative-caret-position="1750">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
           <folding>
             <element signature="e#61#101#0" expanded="true" />
             <element signature="e#1739#2000#0" />
+            <element signature="e#2063#3039#0" />
+            <element signature="e#3078#9332#0" />
+            <element signature="e#9375#15657#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/query.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="325">
           <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python_addins/rutas/Install/rutas_addin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding>
-            <element signature="e#323#564#0" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/procesar_segmentacion.py">
+    <entry file="file://$PROJECT_DIR$/utils/croquis_listado.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        <state relative-caret-position="-327">
+          <caret line="325" column="41" lean-forward="true" selection-start-line="325" selection-start-column="41" selection-end-line="325" selection-end-column="41" />
           <folding>
-            <element signature="e#24#41#0" expanded="true" />
+            <element signature="e#24#55#0" expanded="true" />
+            <element signature="e#5759#6378#0" />
+            <element signature="e#10550#10946#0" />
+            <element signature="e#11910#13134#0" />
+            <element signature="e#14364#16141#0" />
+            <element signature="e#14956#15263#0" />
+            <element signature="e#15315#15935#0" />
+            <element signature="e#19119#23884#0" />
+            <element signature="e#23970#28026#0" />
           </folding>
         </state>
       </provider>

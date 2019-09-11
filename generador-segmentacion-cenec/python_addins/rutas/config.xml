@@ -1,0 +1,12 @@
+<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Name>Programacion de Rutas</Name><AddInID>{b45518c7-5e2c-4b43-8485-f34793b399b5}</AddInID><Description>programacion de rutas de los empadronadores</Description><Version>0.1</Version><Image>Images\terran.png</Image><Author>fsoto</Author><Company>INEI</Company><Date>09/05/2019</Date><Targets><Target name="Desktop" version="10.1" /></Targets><AddIn language="PYTHON" library="rutas_addin.py" namespace="rutas_addin"><ArcMap>
+    <Commands>
+        <Button caption="Prueba" category="Programacion de Rutas" class="BtnPrueba" id="rutas_addin.btn_prueba" image="Images\terran.png" message="prueba" tip="prueba"><Help heading="prueba">prueba</Help></Button>
+        </Commands>
+    <Extensions>
+        </Extensions>
+    <Toolbars>
+        <Toolbar caption="ToolbarRutas" category="Programacion de Rutas" id="rutas_addin.toolbar" showInitially="true"><Items><Button refID="rutas_addin.btn_prueba" /></Items></Toolbar>
+        </Toolbars>
+    <Menus>
+        </Menus>
+    </ArcMap></AddIn></ESRI.Configuration>
