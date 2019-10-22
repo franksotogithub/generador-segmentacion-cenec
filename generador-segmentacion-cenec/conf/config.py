@@ -18,10 +18,12 @@ PATH_TRABAJO_PROCESAR  = os.path.join(BASE_DIR,r'archivos_trabajo\segmentacion_c
 PATH_IMG = os.path.join(BASE_DIR,r'imagenes')
 PATH_CROQUIS = os.path.join(BASE_DIR_CROQUIS_LISTADO,r'croquis')
 PATH_LISTADO = os.path.join(BASE_DIR_CROQUIS_LISTADO,r'listado')
-PATH_PROGRAMACIONES = os.path.join(BASE_DIR,r'programaciones')
+PATH_PROGRAMACIONES = os.path.join(BASE_DIR_CROQUIS_LISTADO,r'programacion')
 PATH_CROQUIS_LISTADO = os.path.join(BASE_DIR_CROQUIS_LISTADO,r'croquis_listado')
+PATH_KMZ = os.path.join(BASE_DIR_CROQUIS_LISTADO,r'kmz')
 
 PATH_PLANTILLA_CROQUIS = os.path.join(BASE_DIR,r'plantilla_croquis')
 PATH_PLANTILLA_LAYERS = os.path.join(BASE_DIR,r'plantilla_layers')
+
 
 PATH_TXT_ZONAS = os.path.join(BASE_DIR,r'archivos_trabajo','txt_zonas.txt')

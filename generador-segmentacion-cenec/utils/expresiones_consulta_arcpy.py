@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 def expresion_ubigeos(where_list):
     m=0
     where_expression=""
@@ -92,11 +92,10 @@ def expresion_2(data,campos):
                     if campos[n][1] == "TEXT":
                         fila_expresion =  u"""{} \"{nombre_campo}\"=\'{data}\'  """.format(fila_expresion ,nombre_campo=campos[n][0],data=fila[n])
                     else:
-                        fila_expresion =  u"""{} \"{nombre_campo}\"={data}  """.format(fila_expresion ,nombre_campo=campos[n][0], data=fila[n])
+                        fila_expresion =  u"""{} \"{nombre_campo}\"={data} """.format(fila_expresion ,nombre_campo=campos[n][0], data=fila[n])
                 else:
                     if campos[n][1]=="TEXT":
                         fila_expresion =   u"""{} \"{nombre_campo}\"=\'{data}\' AND """.format(fila_expresion,nombre_campo=campos[n][0],data=fila[n])
-
                     else:
                         fila_expresion =  u"""{} \"{nombre_campo}\"={data} AND """.format(fila_expresion ,nombre_campo=campos[n][0], data=fila[n])
                 n = n + 1
@@ -122,10 +121,7 @@ def expresion_sql(data,campos):
             fila_expresion=""
             n = 0
             for campo in campos:
-
-
                 if (n+1)==len(campos):
-
                     if campos[n][1]=="TEXT":
                         fila_expresion = u"""{} {nombre_campo}=\'{data}\'  """.format(fila_expresion,nombre_campo=campos[n][0],data=fila[n])
 

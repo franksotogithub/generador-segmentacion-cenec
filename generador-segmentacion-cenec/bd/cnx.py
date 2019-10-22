@@ -24,5 +24,8 @@ def connect_bd():
     cnxn = pyodbc.connect(
         'DRIVER={SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s'
         % (config.HOST, config.DB_NAME, config.USER, config.PASSWORD), autocommit=True)
+
+
     cursor = cnxn.cursor()
+
     return cnxn, cursor

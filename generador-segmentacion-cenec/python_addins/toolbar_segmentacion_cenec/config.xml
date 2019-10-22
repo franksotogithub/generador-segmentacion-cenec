@@ -1,0 +1,17 @@
+<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><Name>Python Addin</Name><AddInID>{ce2024df-631b-4c73-8ce7-3ba90c6a8e3d}</AddInID><Description>New Addin</Description><Version>0.1</Version><Image /><Author>Untitled</Author><Company>Untitled</Company><Date>09/13/2019</Date><Targets><Target name="Desktop" version="10.1" /></Targets><AddIn language="PYTHON" library="addin_nuevo_addin.py" namespace="addin_nuevo_addin"><ArcMap>
+    <Commands>
+        <Button caption="Button1" category="Python Addin" class="DescargarInformacion_b001" id="DescargarInformacion_b001.button" image="Images\descarga.png" message="" tip="Importar informacion"><Help heading="" /></Button>
+        <Button caption="Button2" category="Python Addin" class="CrearCapaRutas_b002" id="CrearCapaRutas_b002.button" image="Images\rutas.png" message="" tip=""><Help heading="" /></Button>
+        <Button caption="Button3" category="Python Addin" class="OrdenarCCPP_b003" id="OrdenarCCPP_b003.button" image="Images\ccpps.png" message="" tip=""><Help heading="" /></Button>
+        <Button caption="Button5" category="Python Addin" class="TbFinales_b005" id="TbFinales.button" image="Images\crearTabla.png" message="" tip=""><Help heading="" /></Button>
+        <Button caption="Button6" category="Python Addin" class="CargaBD_b006" id="CargaBD_b006.button" image="Images\carga.png" message="" tip=""><Help heading="" /></Button>
+        <Button caption="AgruparAes" category="Python Addin" class="AgruparAesBtn" id="addin_nuevo_addin.button" image="Images\Seccion.png" message="Agrupar Aes" tip="Agrupar Aes"><Help heading="" /></Button>
+        </Commands>
+    <Extensions>
+        </Extensions>
+    <Toolbars>
+        <Toolbar caption="SegmentacioCenec" category="Python Addin" id="addin_nuevo_addin.toolbar" showInitially="true"><Items><Button refID="DescargarInformacion_b001.button" /><Button refID="CrearCapaRutas_b002.button" /><Button refID="OrdenarCCPP_b003.button" /><Button refID="TbFinales.button" /><Button refID="CargaBD_b006.button" /><Button refID="addin_nuevo_addin.button" /></Items></Toolbar>
+        </Toolbars>
+    <Menus>
+        </Menus>
+    </ArcMap></AddIn></ESRI.Configuration>

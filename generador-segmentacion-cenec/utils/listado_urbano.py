@@ -18,7 +18,7 @@ import math
 
 from os import path
 from conf import config
-
+from datetime import datetime
 h1 = PS(
     name='Heading1',
     fontSize=7,
@@ -164,28 +164,31 @@ def listado_ruta(info, output):
         [Paragraph(u'<b>SEDE OPERATIVA: </b>', h1), u'{}'.format(coddpto), u'{}'.format(departamento), '',u'{}'.format(empadronador)],
         [Paragraph(u'<b>BRIGADA: </b>', h1), u'{}'.format(brigada), '', '', ''],
         [Paragraph(u'<b>RUTA: </b>', h1), u'{}'.format(ruta),'', '', ''],
+        [Paragraph(u'<b>EMPADRONADOR: </b>', h1), u'{}'.format(cod_emp), '', '', ''],
+        #cod_emp
         ]
 
 
     Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 1 * cm, 7.5 * cm],
-                  rowHeights=[0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm])
+                  rowHeights=[0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm])
 
 
     Tabla.setStyle(TableStyle([
            ('TEXTCOLOR', (0, 0), (4, 0), colors.black),
-           ('GRID', (0, 1), (2, 4), 1, colors.black),
+           ('GRID', (0, 1), (2, 5), 1, colors.black),
            ('GRID', (4, 1), (4, 2), 1, colors.black),
            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
            ('ALIGN', (0, 1), (4, 1), 'CENTER'),
            ('ALIGN', (0, 1), (0, -1), 'RIGHT'),
-           ('ALIGN', (1, 1), (2, 4), 'CENTER'),
+           ('ALIGN', (1, 1), (2, 5), 'CENTER'),
            ('FONTSIZE', (0, 0), (-1, -1), 8),
            ('BACKGROUND', (0, 1), (2, 1), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
-           ('BACKGROUND', (0, 1), (0, 4), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
+           ('BACKGROUND', (0, 1), (0, 5), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
            ('BACKGROUND', (4, 1), (4, 1), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
            ('SPAN', (0, 1), (2, 1)),
            ('SPAN', (1, 3), (2, 3)),
            ('SPAN', (1, 4), (2, 4)),
+            ('SPAN', (1, 5), (2, 5)),
     ]))
     Elementos.append(Tabla)
     Elementos.append(Spacer(0, 10))
@@ -342,14 +345,14 @@ def listado_brigada(info, output):
     Elementos.append(Spacer(0, 10))
 
     CabeceraSecundaria = [
-         [Paragraph(e, h3) for e in [u"<strong>Nº</strong>",u"<strong>COD.EMP.</strong>",u"<strong>UBIGEO</strong>", u"<strong>DEPARTAMENTO</strong>",
+         [Paragraph(e, h3) for e in [u"<strong>Nº</strong>",u"<strong>COD.RUTA.</strong>",u"<strong>COD.EMP.</strong>",u"<strong>UBIGEO</strong>", u"<strong>DEPARTAMENTO</strong>",
                                         u"<strong>PROVINCIA</strong>",u"<strong>DISTRITO</strong>",u"<strong>COD. CCPP</strong>",u"<strong>CENTRO POBLADO</strong>",
                                         u"<strong>PER.</strong>",u"<strong>UBICACIÓN CENSAL</strong>","",u"<strong>TOT. EST.</strong>"
           ]],
-          [Paragraph(e, h3) for e in["","","","","","","","","","ZONA","MZ",""]],
+          [Paragraph(e, h3) for e in["","","","","","","","","","","ZONA","MZ",""]],
         ]
 
-    columnas = [1.2* cm, 1.7*cm,1.5 * cm, 3 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.3 * cm, 0.9 * cm,  1.2 * cm, 6.4 * cm ,1*cm]
+    columnas = [1.2* cm, 1.7*cm,1.7*cm,1.5 * cm, 3 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.3 * cm, 0.9 * cm,  1.2 * cm, 4.7 * cm ,1*cm]
 
     Tabla1 = Table(CabeceraSecundaria, colWidths=columnas)
 
@@ -368,8 +371,9 @@ def listado_brigada(info, output):
             ('SPAN', (6, 0), (6, 1)),
             ('SPAN', (7, 0), (7, 1)),
             ('SPAN', (8, 0), (8, 1)),
-            ('SPAN', (9, 0), (10, 0)),
-            ('SPAN', (11, 0), (11, 1)),
+            ('SPAN', (9, 0), (9, 1)),
+            ('SPAN', (10, 0), (11, 0)),
+            ('SPAN', (12, 0), (12, 1)),
 
         ]
     ))
@@ -386,6 +390,7 @@ def listado_brigada(info, output):
                     [Paragraph(e, h3) for e in
                     [u'{}'.format(count),
                      u'{}'.format(x['RUTA']),
+                     u'{}'.format(x['EMP']),
                      u'{}'.format(x['UBIGEO']),
                      u'{}'.format(x['DEPARTAMENTO']),
                      u'{}'.format(x['PROVINCIA']),
@@ -437,3 +442,186 @@ def listado_brigada(info, output):
 
     pdf.build(Elementos)
     return output
+
+def programacion_ruta(info,output):
+    cab=info[0]
+    data= info[1]
+    coddpto = cab["CODSEDE"]
+    departamento = cab["SEDE_OPERATIVA"]
+    brigada = cab["BRIGADA"]
+    ruta = cab["RUTA"]
+
+    empadronador = ""
+
+    Plantilla = getSampleStyleSheet()
+
+    Elementos = []
+
+
+    Titulo = Paragraph(u'V CENSO NACIONAL ECONÓMICO <br/> 2019 - 2020',h_sub_tile)
+    SubTitulo = Paragraph(u'<strong>PROGRAMACIÓN DE RUTA DEL EMPADRONADOR</strong>', h_sub_tile_2)
+
+
+    CabeceraPrincipal = [[Titulo,'',''],
+                         [Image(escudo_nacional, width=50, height=50), SubTitulo, Image(logo_nacional, width=55, height=50)]]
+
+    Tabla0 = Table(CabeceraPrincipal, colWidths=[2 * cm, 14 * cm, 2 * cm])
+
+    Tabla0.setStyle(TableStyle([
+        ('GRID', (0, 0), (-1, -1), 1, colors.white),
+        ('SPAN', (0, 0), (2, 0)),
+        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+        ('VALIGN', (0, 0), (-1, -1), 'MIDDLE')
+
+    ]))
+
+
+    Elementos.append(Tabla0)
+    Elementos.append(Spacer(0, 10))
+
+
+    Filas = [
+        ['', '', '', '', 'DOC.CENEC.03.11'],
+        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA</b>',h11)],
+        [Paragraph(u'<b>SEDE OPERATIVA: </b>', h1), u'{}'.format(coddpto), u'{}'.format(departamento), '',u'{}'.format(empadronador)],
+        [Paragraph(u'<b>BRIGADA: </b>', h1), u'{}'.format(brigada), '', '', ''],
+        [Paragraph(u'<b>RUTA: </b>', h1), u'{}'.format(ruta), '', '', ''],
+        ]
+
+    Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 7 * cm,  8.9 * cm],
+                  rowHeights=[0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm, 0.4 * cm])
+
+
+    Tabla.setStyle(TableStyle([
+           ('TEXTCOLOR', (0, 0), (4, 0), colors.black),
+           ('GRID', (0, 1), (2, 4), 1, colors.black),
+           ('GRID', (4, 1), (4, 2), 1, colors.black),
+           ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+           ('ALIGN', (0, 1), (4, 1), 'CENTER'),
+           ('ALIGN', (0, 1), (0, -1), 'RIGHT'),
+           ('ALIGN', (1, 1), (2, 4), 'CENTER'),
+           ('FONTSIZE', (0, 0), (-1, -1), 8),
+           ('BACKGROUND', (0, 1), (2, 1), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
+           ('BACKGROUND', (0, 1), (0, 4), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
+           ('BACKGROUND', (4, 1), (4, 1), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
+           ('SPAN', (0, 1), (2, 1)),
+           ('SPAN', (1, 3), (2, 3)),
+           ('SPAN', (1, 4), (2, 4)),
+
+
+    ]))
+    Elementos.append(Tabla)
+    Elementos.append(Spacer(0, 10))
+    CabeceraSecundaria = [
+         [Paragraph(e, h3) for e in [u"Nº",u"UBIGEO", u"DEPARTAMENTO",
+                                        u"PROVINCIA",u"DISTRITO",u"COD. CCPP",u"CENTRO POBLADO",
+                                        u"UBICACIÓN CENSAL","",u"EST.",u"N° PERIODO","",u"PERIODO DE TRABAJO",
+                                       u"DÍAS DE OPERACIÓN DE CAMPO","","","","","",u"ASIGNACIÓN DE FONDOS","","","",""
+
+
+          ]],
+          [Paragraph(e, h3) for e in["","","","","","","",u"ZONA",u"MANZANA","",
+                                     "",u"FECHA INI",u"FECHA FIN",u"VIAJE",u"ACT-EMP.",u"RECUPERACION",
+                                        u"DESCANSO",u"DIAS OPERATIVOS",u"TOT.DIAS",u"MOV.LOCAL",
+                                       u"MOV.ESPECIAL", u"PASAJE",u"VIATICOS",u"TOTAL GENERAL s/."]],
+
+        ]
+
+    columnas = [1* cm, 1.2 * cm, 2 * cm, 2 * cm, 2 * cm, 1.2 * cm, 2.3 * cm, 1 * cm,  1.5 * cm, 1 * cm ,
+                1*cm,1*cm,1*cm,1*cm,1*cm,1*cm,1*cm,1*cm,1*cm,0.8*cm,
+                1*cm,1.2*cm,1*cm,1*cm]
+
+    Tabla1 = Table(CabeceraSecundaria, colWidths=columnas)
+
+    Tabla1.setStyle(TableStyle(
+        [
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('FONTSIZE', (0, 0), (-1, -1), 3),
+            ('FONTSIZE', (0, 1), (0, -1), 3),
+            ('BACKGROUND', (0, 0), (-1, -1), colors.Color(220.0 / 255, 220.0 / 255, 220.0 / 255)),
+            ('SPAN', (0, 0), (0, 1)),
+            ('SPAN', (1, 0), (1, 1)),
+            ('SPAN', (2, 0), (2, 1)),
+            ('SPAN', (3, 0), (3, 1)),
+            ('SPAN', (4, 0), (4, 1)),
+            ('SPAN', (5, 0), (5, 1)),
+            ('SPAN', (6, 0), (6, 1)),
+            ('SPAN', (7, 0), (8, 0)),
+            ('SPAN', (9, 0), (9, 1)),
+            ('SPAN', (10, 0), (10, 1)),
+            ('SPAN', (11, 0), (12, 0)),
+            ('SPAN', (13, 0), (18, 0)),
+            ('SPAN', (19, 0), (23, 0)),
+
+        ]
+    ))
+    Elementos.append(Tabla1)
+
+    nrows = len(data)
+
+    p=1
+    contador_lineas=0
+    n_hoja=1
+
+    for count,x in enumerate(data,1):
+        registros = [
+                    [Paragraph(e, h3) for e in
+                    [
+                     u'{}'.format(count),
+                     u'{}'.format(x['UBIGEO']),
+                     u'{}'.format(x['DEPARTAMENTO']),
+                     u'{}'.format(x['PROVINCIA']),
+                     u'{}'.format(x['DISTRITO']),
+                     u'{}'.format(x['CODCCPP']),
+                     u'{}'.format(x['NOMCCPP']),
+                     u'{}'.format(x['ZONA']),
+                     u'{}'.format(''),
+                     u'{}'.format(x['CANT_EST']),
+                     u'{}'.format(x['PERIODO']),
+
+
+                     u'{}'.format( (datetime.strptime(x['FECHA_INI'][0:10], "%Y-%m-%d")).strftime("%d/%m/%Y")  ),
+                     u'{}'.format( (datetime.strptime(x['FECHA_FIN'][0:10], "%Y-%m-%d")).strftime("%d/%m/%Y")  ),
+                     u'{}'.format(x['DIAS_VIAJE']),
+                     '',
+                     u'{}'.format(x['DIAS_RECUPERACION']),
+                     u'{}'.format(x['DIAS_DESCANSO']),
+                     u'{}'.format(x['DIAS_OPERATIVOS']),
+                     u'{}'.format(x['TOTAL_DIAS']),
+                     u'{}'.format(x['MOV_LOCAL']),
+                     u'{}'.format(x['MOV_ESPECIAL']),
+                     u'{:6.2f}'.format( round(x['PASAJES'],3) ),
+                     u'{}'.format(x['VIATICOS']),
+                     ''
+                     ]]
+        ]
+        Tabla2 = Table(registros, colWidths=columnas)
+        Tabla2.setStyle(TableStyle([
+                    ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                    ('FONTSIZE', (0, 0), (-1, -1), 5),
+                    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                    ('ALIGN', (0, 0), (-1, -1), 'CENTER')
+                    ]))
+        Elementos.append(Tabla2)
+
+
+    Elementos.append(Spacer(0, 10))
+
+
+
+    pdf = SimpleDocTemplate(output,
+                            pagesize=(29.7 * cm, 21 * cm),
+                            #pagesize=A4,
+                            rightMargin=65,
+                            leftMargin=65,
+                            topMargin=0.5 * cm,
+                            bottomMargin=0.5 * cm,)
+
+
+
+
+
+    pdf.build(Elementos)
+    return output
+
+#def etiquetas(info,output):

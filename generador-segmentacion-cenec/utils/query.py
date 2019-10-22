@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def to_dict(cursor):
     desc = [col[0] for col in cursor.description]
     datos = cursor.fetchall()
@@ -8,31 +9,23 @@ def obtener_zonas(cursor,cnn,cant_zonas):
     query_zonas = """
             begin
                 declare @table TABLE(
-                coddpto varchar(2),
-                codprov varchar(2),
-                coddist varchar(2),
                 ubigeo varchar(6),
-                zona varchar(6),
-                codccpp varchar(5),
-                departamento varchar(100),
-                provincia varchar(100),
-                distrito varchar(100),
-                nomccpp varchar(100)
+                zona varchar(6)
                 );
                 
-                select top {cant_zonas} a.CODDPTO,a.CODPROV,a.CODDIST,a.UBIGEO,a.ZONA,a.CODCCPP,a.DEPARTAMENTO,a.PROVINCIA,a.DISTRITO,a.NOMCCPP from DBO.TB_ZONA a
+                select top {cant_zonas} a.UBIGEO,a.ZONA from sde.TB_ZONA a
                 where a.flag_proc_segm=0 
-                order by 1,2,3,4,5
+                order by 1,2
                 
                 insert @table
-                select top {cant_zonas} a.CODDPTO,a.CODPROV,a.CODDIST,a.UBIGEO,a.ZONA,a.CODCCPP,a.DEPARTAMENTO,a.PROVINCIA,a.DISTRITO,a.NOMCCPP from DBO.TB_ZONA a
-                where a.flag_proc_segm = 0 
-                order by 1,2,3,4,5
+                select top {cant_zonas}  a.UBIGEO,a.ZONA from sde.TB_ZONA a
+                where a.flag_proc_segm = 0  
+                order by 1,2
                 
                 update  a
                 set a.flag_proc_segm = 2
-                from DBO.TB_ZONA a
-                where ubigeo+zona in (select UBIGEO+ZONA from @table)
+                from sde.TB_ZONA a
+                where ubigeo+zona in (select UBIGEO+ZONA from @table) 
                 
             end
     """.format(cant_zonas=cant_zonas)
@@ -41,13 +34,15 @@ def obtener_zonas(cursor,cnn,cant_zonas):
     return zonas
 
 
+
+
 def actualizar_flag_proc_segm(cursor,cnn,ubigeo,zona,flag,equipo='',error=''):
     QUERY_ACTUALIZAR_FLAG_PROC_SEGM = """
     begin
     update a
     set a.flag_proc_segm={flag},a.fec_proc_segm=GETDATE(),a.equipo_proc_segm='{equipo}',a.error='{error}'
-    from [dbo].[TB_ZONA] a
-    where a.ubigeo='{ubigeo}' and a.zona='{zona}'
+    from [sde].[TB_ZONA] a
+    where a.ubigeo='{ubigeo}' and a.zona='{zona}' 
     end
     """.format(ubigeo=ubigeo,zona=zona,flag=flag,equipo=equipo,error=error)
 
@@ -55,5 +50,44 @@ def actualizar_flag_proc_segm(cursor,cnn,ubigeo,zona,flag,equipo='',error=''):
     cursor.execute(QUERY_ACTUALIZAR_FLAG_PROC_SEGM)
     cnn.commit()
 
+def obtener_distritos(cursor,cnn,cant=1):
+    query_distritos = """
+            begin
+                declare @table TABLE(
+                ubigeo varchar(6)
+               
+                )
+                
+                select top {cant} a.UBIGEO from sde.TB_DISTRITO a
+                where a.flag_proc_segm=0 
+                order by 1
+                
+                insert @table
+                select top {cant}  a.UBIGEO from sde.TB_DISTRITO a
+                where a.flag_proc_segm = 0   
+                order by 1
+                
+                update  a
+                set a.flag_proc_segm = 2
+                from sde.TB_DISTRITO a
+                where ubigeo in (select UBIGEO from @table) 
+
+            end
+    """.format(cant=cant)
+    zonas = to_dict(cursor.execute(query_distritos))
+    cnn.commit()
+    return zonas
 
 
+def actualizar_flag_proc_segm_distrito(cursor,cnn,ubigeo,flag,equipo='',error=''):
+    QUERY_ACTUALIZAR_FLAG_PROC_SEGM = """
+    begin
+    update a
+    set a.flag_proc_segm={flag},a.fec_proc_segm=GETDATE(),a.equipo_proc_segm='{equipo}',a.error='{error}'
+    from [sde].[TB_DISTRITO] a
+    where a.ubigeo='{ubigeo}'
+    end
+    """.format(ubigeo=ubigeo,flag=flag,equipo=equipo,error=error)
+
+    cursor.execute(QUERY_ACTUALIZAR_FLAG_PROC_SEGM)
+    cnn.commit()
