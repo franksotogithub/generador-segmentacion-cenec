@@ -4,7 +4,10 @@ def to_dict(cursor):
     datos = cursor.fetchall()
     result_dict = [dict(zip(desc, dato)) for dato in datos]
     return result_dict
-
+## estado -1 no se procesa en la etapa
+## estado 0 no proceso y listo para procesar
+## estado 2 en proceso
+##
 def obtener_zonas(cursor,cnn,cant_zonas):
     query_zonas = """
             begin
@@ -91,3 +94,15 @@ def actualizar_flag_proc_segm_distrito(cursor,cnn,ubigeo,flag,equipo='',error=''
 
     cursor.execute(QUERY_ACTUALIZAR_FLAG_PROC_SEGM)
     cnn.commit()
+
+def obtener_sedes(cursor,cod_oper='01'):
+    query_sedes="""
+        
+    select distinct a.codsede from [dbo].[SEGM_U_RUTA_MANZANA] a
+    
+    WHERE COD_OPER='{cod_oper}'
+    order by 1
+    """.format(cod_oper= cod_oper)
+
+    sedes = to_dict(cursor.execute(query_sedes))
+    return sedes

@@ -14,9 +14,9 @@ arcpy.env.outputCoordinateSystem = arcpy.SpatialReference(4326)
 import math
 UBIGEO='{}'.format(sys.argv[1])
 
-
 class SegmentacionCENEC:
     zonas =[]
+
     def __init__(self,distrito, cant_est_max=150):
         self.conn, self.cursor = cnx.connect_bd()
         self.distrito=distrito

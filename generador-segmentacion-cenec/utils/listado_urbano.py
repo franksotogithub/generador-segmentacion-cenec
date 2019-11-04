@@ -82,7 +82,7 @@ def contar_registros(rows,ini,rango):
     final = zip(lista_ini, lista_fin)
     return final
 
-def cuerpo_hoja_listado_ruta(elementos,data,columnas,i):
+def cuerpo_hoja_listado_ruta(elementos,data,columnas,i,ancho=0.8):
     n=i
     for count, x in enumerate(data, i):
         registros = [
@@ -101,7 +101,7 @@ def cuerpo_hoja_listado_ruta(elementos,data,columnas,i):
               ]]
         ]
 
-        Tabla2 = Table(registros, colWidths=columnas)
+        Tabla2 = Table(registros, colWidths=columnas ,rowHeights=[ancho * cm])
         Tabla2.setStyle(TableStyle([
             ('GRID', (0, 0), (-1, -1), 1, colors.black),
             ('FONTSIZE', (0, 0), (-1, -1), 7),
@@ -115,10 +115,10 @@ def cuerpo_hoja_listado_ruta(elementos,data,columnas,i):
 
 
 def listado_ruta(info, output):
-    CANT_REG_PRIMERA_HOJA=36
-    CANT_REG_SIGUIENTES_HOJAS = 45
-    CANT_REG_SIGUIENTES_ULTIMA_HOJA = CANT_REG_SIGUIENTES_HOJAS - 3
-
+    #CANT_REG_PRIMERA_HOJA=36
+    CANT_REG_PRIMERA_HOJA = 24
+    CANT_REG_SIGUIENTES_HOJAS = 32
+    CANT_REG_SIGUIENTES_ULTIMA_HOJA = CANT_REG_SIGUIENTES_HOJAS - 2
 
     cab=info[0]
     data= info[1]
@@ -202,7 +202,8 @@ def listado_ruta(info, output):
         ]
 
 
-    columnas = [1.2 * cm, 1.5 * cm, 2.8 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.1 * cm, 1 * cm, 1.2 * cm, 1 * cm ,1*cm]
+    #columnas = [1.2 * cm, 1.5 * cm, 2.8 * cm, 3 * cm, 3.5 * cm, 1.2 * cm, 2.1 * cm, 1 * cm, 1.2 * cm, 1 * cm ,1*cm]
+    columnas = [1.2 * cm, 1.5 * cm, 2.85 * cm, 2.85 * cm, 2.85 * cm, 1.2 * cm, 2.85 * cm, 1 * cm, 1.2 * cm, 1 * cm, 1 * cm]
 
     Tabla1 = Table(CabeceraSecundaria, colWidths=columnas)
 
@@ -233,6 +234,30 @@ def listado_ruta(info, output):
     contador_lineas=0
     n_hoja=1
 
+    ancho = 0.8
+    data
+
+    tam_max_distrito=max(list( len(e['DISTRITO']) for e in data))
+    tam_max_nomccpp = max(list(len(e['NOMCCCPP']) for e in data))
+
+    tam_max = max(tam_max_distrito,tam_max_nomccpp)
+    #    [{'UBIGEO': e[0], 'ZONA': e[1], 'DEPARTAMENTO': e[2], 'PROVINCIA': e[3],
+    #                            'DISTRITO': e[4], 'CODDPTO': e[5], 'CODPROV': e[6], 'CODDIST': e[7], 'CODCCPP': e[8],
+    #                            'NOMCCCPP': e[9], 'BRIGADA': e[10], 'RUTA': ruta['RUTA'], 'PERIODO': e[11],
+    #                            'CODSEDE': e[12], 'SEDE_OPERATIVA': e[13], 'MANZANAS': e[14], 'CANT_EST': e[15],
+    #                            'EMP': e[16]
+    #                            } for e in list(set((d['UBIGEO'], d['ZONA'], d['DEPARTAMENTO'], d['PROVINCIA'],
+    #                                                 d['DISTRITO'], d['CODDPTO'], d['CODPROV'], d['CODDIST'],
+    #                                                 d['CODCCPP'], d['NOMCCCPP'], d['BRIGADA'], d['PERIODO'],
+    #                                                 d['CODSEDE'], d['SEDE_OPERATIVA'], d['MANZANAS'], d['CANT_EST'],
+    #                                                 d['EMP']) for d in data))]
+
+    if(tam_max>25 ):
+        CANT_REG_PRIMERA_HOJA = 16
+        CANT_REG_SIGUIENTES_HOJAS = 21
+        CANT_REG_SIGUIENTES_ULTIMA_HOJA = CANT_REG_SIGUIENTES_HOJAS - 1
+        ancho = 1.2
+
     if nrows > CANT_REG_PRIMERA_HOJA:
         HojaRegistros = contar_registros(nrows, CANT_REG_PRIMERA_HOJA, CANT_REG_SIGUIENTES_HOJAS)
         HojaRegistros.append((0,CANT_REG_PRIMERA_HOJA))
@@ -240,7 +265,7 @@ def listado_ruta(info, output):
         i=1
         for rangos in HojaRegistros:
             datax= data[rangos[0]:rangos[1]]
-            i=cuerpo_hoja_listado_ruta(Elementos,datax,columnas,i)
+            i=cuerpo_hoja_listado_ruta(Elementos,datax,columnas,i,ancho)
             Elementos.append(PageBreak())
             Elementos.append(Tabla1)
 
@@ -250,7 +275,7 @@ def listado_ruta(info, output):
             del Elementos[-1]
 
     else:
-        cuerpo_hoja_listado_ruta(Elementos, data,columnas,1)
+        cuerpo_hoja_listado_ruta(Elementos, data,columnas,1,ancho)
 
     Elementos.append(Spacer(0, 10))
 
@@ -265,7 +290,7 @@ def listado_ruta(info, output):
     PiePagina = [[Paragraph(u'{}'.format(u"EMPADRONADOR"), h3)],
                  [Paragraph(u'{}'.format(u"Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente."),h3)]]
 
-    Tabla_Pie = Table(PiePagina, colWidths = [19.5 * cm],rowHeights=[0.8 * cm,1.6* cm])
+    Tabla_Pie = Table(PiePagina, colWidths = [19.5 * cm],rowHeights=[0.8 * cm,1.4* cm])
 
     Tabla_Pie.setStyle( TableStyle([
         ('GRID', (0, 0), (-1, -1), 1, colors.black),

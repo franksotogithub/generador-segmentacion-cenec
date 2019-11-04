@@ -15,7 +15,7 @@ lista_dist = [1]
 
 for i in range(20):
     #lista_zonas = obtener_zonas(cursor,cnxn,cant_zonas=1)
-    proceso = subprocess.Popen("python segmentacion.py {ubigeo}".format(ubigeo='010101'), shell=True,stderr=subprocess.PIPE)
+    proceso = subprocess.Popen("c:\Python27\ArcGIS10.3\python.exe segmentacion.py {ubigeo}".format(ubigeo='010101'), shell=True,stderr=subprocess.PIPE)
     errores = proceso.stderr.read()
     print errores
 
