@@ -407,9 +407,6 @@ class SegmentacionCENEC:
 
 
     def exportar_resultados(self):
-
-        #self.exportando_resultados_aeu_tabular()
-        #self.exportando_resultados_aeu_manzana_tabular()
         self.exportando_resultados_aeu()
         self.exportando_resultados_aeu_manzana()
 
@@ -450,13 +447,9 @@ class SegmentacionCENEC:
                     arcpy.CopyFeatures_management(out_feature_1, self.path_aeu)
 
     def procesar_zonas(self):
-        print datetime.today()
         self.importar_capas_segmentacion()
-        print datetime.today()
         self.procesar_aeus()
-        print datetime.today()
         self.exportar_resultados()
-        print datetime.today()
         self.list_aeu_manzanas_final = []
         self.list_aeu_final = []
 

@@ -16,16 +16,13 @@ cnxn, cursor=cnx.connect_bd()
 lista_dist = [1]
 
 COD_OPER = '01'
-PROGRAMACION = 0
+PROGRAMACION = 1
 IMPORTAR_CAPAS = 1
 PROCESAR_CROQUIS = 1
 PROCESAR_LISTA_SEDE  = 0
 PROCESAR_ETIQUETAS  = 0
-
-
 sedes = obtener_sedes(cursor,cod_oper=COD_OPER)
-sedes = [{'codsede':'12'}]
-print "sedes",sedes
+
 for s in sedes:
     print s
     proceso = subprocess.Popen("c:\Python27\ArcGIS10.3\python.exe croquis_listado.py {cod_oper} {codsede} {programacion} {importar_capas} {procesar_croquis} {procesar_lista_sede} ".format(cod_oper=COD_OPER,codsede=s['codsede'], programacion=PROGRAMACION ,importar_capas=IMPORTAR_CAPAS ,procesar_croquis=PROCESAR_CROQUIS ,procesar_lista_sede=PROCESAR_LISTA_SEDE  ,procesar_etiquetas = PROCESAR_ETIQUETAS ), shell=True,stderr=subprocess.PIPE)

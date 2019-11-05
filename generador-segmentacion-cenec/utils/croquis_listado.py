@@ -23,11 +23,6 @@ IMPORTAR_CAPAS = int(sys.argv[4])
 PROCESAR_CROQUIS =int (sys.argv[5])
 PROCESAR_LISTA_SEDE =int (sys.argv[6])
 PROCESAR_ETIQUETAS = 0
-
-#COD_OPER='01'
-#CODSEDE='07'
-#PROGRAMACION = 1
-#IMPORTAR_CAPAS = 0
 PERIODOS = [1,2,3]
 
 class CroquisListadoCENEC:
@@ -57,6 +52,7 @@ class CroquisListadoCENEC:
         self.path_plantilla_croquis_brigada_v = path.join(config.PATH_PLANTILLA_CROQUIS, 'croquis_brigada_vertical.mxd')
         self.path_plantilla_kmz_mxd = path.join(config.PATH_PLANTILLA_CROQUIS, 'plantilla_kmz.mxd')
         self.centroides = []
+        self.periodos = PERIODOS
 
     def importar_capas(self, zonas,cod_oper='01'):
         #print 'zonas>>>',zonas
@@ -126,20 +122,18 @@ class CroquisListadoCENEC:
                     
                     select * from [dbo].[SEGM_U_BRIGADA] 
                     where isnull(COD_OPER,'01')='{cod_oper}'  AND CODSEDE ='{codsede}'
-                    AND ISNULL(PROC_CROQUIS,0)=0
+                    --AND ISNULL(PROC_CROQUIS,0)=0
                     
-                    
-                                update a
-								set  a.proc_croquis = 1 
-								from dbo.SEGM_U_brigada a
-								where isnull(COD_OPER,'01')='{cod_oper}'  AND CODSEDE ='{codsede}'
-                                AND ISNULL(PROC_CROQUIS,0)=0
+                    --update a
+					--set  a.proc_croquis = 1 
+					--from dbo.SEGM_U_brigada a
+					--where isnull(COD_OPER,'01')='{cod_oper}'  AND CODSEDE ='{codsede}'
+                    --AND ISNULL(PROC_CROQUIS,0)=0
                                     
                 end
         """.format(cod_oper=cod_oper,codsede=codsede)
 
         brigadas = to_dict(self.cursor.execute(query_brigadas))
-        print 'query_brigadas>>>',query_brigadas
         return brigadas
 
     def obtener_rutas(self, brigada):
@@ -169,25 +163,45 @@ class CroquisListadoCENEC:
         return empadronadores
 
     def obtener_programacion_brigada(self,brigada):
+
+        query_p = ''
+
+        for count,p in enumerate(self.periodos):
+            if count>0:
+                query_p = '{},{}'.format(query_p, p)
+            else:
+                query_p = '{}'.format(p)
+
+
         query = """  begin
                          SELECT b.DEPARTAMENTO,b.PROVINCIA,b.DISTRITO,SUBSTRING(CODCCPP,7,5)CODCCPP,b.NOMCCPP,a.* FROM SDE.SEGM_PROGRAMACION_BRIGADAS A
                          INNER JOIN TB_ZONA B ON A.UBIGEO+ A.ZONA = B.UBIGEO+B.ZONA
-                         where a.codsede='{codsede}' and a.brigada ={brigada} and a.cod_oper='{cod_oper}'
+                         where a.codsede='{codsede}' and a.brigada ={brigada} and a.cod_oper='{cod_oper}' and a.periodo in ({periodos})
                          order by a.periodo,a.orden              
                      end
-                            """.format(codsede=brigada["CODSEDE"],brigada=int(brigada["BRIGADA"]), cod_oper=brigada["COD_OPER"])
-        #print 'obtener_emp_por_ruta>>>', query
+                            """.format(codsede=brigada["CODSEDE"],brigada=int(brigada["BRIGADA"]), cod_oper=brigada["COD_OPER"], periodos = query_p)
+
         empadronadores = to_dict(self.cursor.execute(query))
+
         return empadronadores
 
     def obtener_programacion_ruta_sede(self,sede):
+        query_p = ''
+
+        for count, p in enumerate(self.periodos):
+            if count > 0:
+                query_p = '{},{}'.format(query_p, p)
+            else:
+                query_p = '{}'.format(p)
+
+
         query = """  begin
                                  SELECT b.SEDE_OPERATIVA,b.DEPARTAMENTO,b.PROVINCIA,b.DISTRITO,SUBSTRING(CODCCPP,7,5)CODCCPP,b.NOMCCPP,a.*, 0 ADICIONAL FROM SDE.SEGM_PROGRAMACION_RUTAS A
                                  INNER JOIN TB_ZONA B ON A.UBIGEO+ A.ZONA = B.UBIGEO+B.ZONA
-                                 where A.codsede='{codsede}'  and A.cod_oper='{cod_oper}'
+                                 where A.codsede='{codsede}'  and A.cod_oper='{cod_oper}' and A.periodo in ({periodos})
                                  order by a.brigada,a.ruta,a.periodo,a.orden                
                              end
-                                    """.format(codsede=sede["CODSEDE"],cod_oper=sede["COD_OPER"])
+                                    """.format(codsede=sede["CODSEDE"],cod_oper=sede["COD_OPER"], periodos = query_p)
         programacion = to_dict(self.cursor.execute(query))
         print 'query>>>',query
         return programacion
@@ -199,6 +213,9 @@ class CroquisListadoCENEC:
                                  INNER JOIN TB_ZONA B ON A.UBIGEO+ A.ZONA = B.UBIGEO+B.ZONA
                                  where a.codsede='{codsede}'  and a.cod_oper='{cod_oper}'
                                  order by a.brigada,a.ruta,a.periodo,a.orden 
+                                 
+                                 
+                                 
                                               
                              end
                                     """.format(codsede=sede["CODSEDE"],cod_oper=sede["COD_OPER"])
@@ -223,8 +240,17 @@ class CroquisListadoCENEC:
                                         SELECT A.*,B.SEDE_OPERATIVA FROM sde.SEGM_RUTA_EMP_PERIODO A 
                                         
                                         INNER JOIN  sde.TB_SEDE_OPERATIVA B ON A.CODSEDE=B.CODSEDE  
-                                        where A.COD_OPER='{cod_oper}' and A.CODSEDE = '{codsede}' 
+                                        where A.COD_OPER='{cod_oper}' and A.CODSEDE = '{codsede}'
+                                        AND ISNULL(A.PROC_CROQUIS,0)=0 
                                         order by COD_OPER,CODSEDE,BRIGADA,RUTA,EMPADRONADOR DESC 
+                                            
+                                        
+                                        update a
+                                        set  a.proc_croquis = 1 
+                                        from sde.SEGM_RUTA_EMP_PERIODO a
+                                        where a.COD_OPER='{cod_oper}' and a.CODSEDE = '{codsede}'
+                                        AND ISNULL(a.PROC_CROQUIS,0)=0
+                                        
                      end
                             """.format(cod_oper=cod_oper,codsede=codsede)
         #print 'obtener_emp_por_ruta>>>', query
@@ -251,12 +277,11 @@ class CroquisListadoCENEC:
                                 
                                 SELECT B.*, (B.MARCO_FIN + B.PUESTO) CANT_EST ,isnull(A.ORDEN,0)ORDEN FROM dbo.SEGM_U_RUTA_MANZANA B
                                 left join [sde].[SEGM_PROGRAMACION_RUTAS] A ON A.PK_AEU = B.Z_AE
-                                
                                 where B.CODSEDE = '{codsede}' AND B.BRIGADA ='{brigada}' AND B.COD_OPER = '{cod_oper}' 
                                 ORDER BY B.BRIGADA,B.RUTA,B.PERIODO,A.ORDEN,B.UBIGEO,B.ZONA,B.FALSO_COD
                                 
                             end
-                    """.format(codsede=brigada["CODSEDE"], brigada=brigada["BRIGADA"],cod_oper = brigada["COD_OPER"])
+                    """.format(codsede=brigada["CODSEDE"], brigada=brigada["BRIGADA"],cod_oper = brigada["COD_OPER"] )
         print  'query_rutas_manzanas_por_brigada>>>', query_rutas_manzanas_por_brigada
         rutas_manzanas = to_dict(self.cursor.execute(query_rutas_manzanas_por_brigada))
         return rutas_manzanas
@@ -483,31 +508,22 @@ class CroquisListadoCENEC:
         carpetas  = [self.path_base,self.path_croquis_listado_ini,self.path_listado,self.path_croquis ,self.path_kmz,
                      self.path_programaciones,self.path_etiquetas,self.path_croquis_listado ,self.path_mxd]
 
-
-
-
-
         for carpeta in carpetas:
             if not (path.exists(carpeta)):
                 mkdir(carpeta)
 
-
-        brigadas = self.obtener_brigadas(cod_oper=cod_oper,codsede=codsede)
         zonas = []
         brigada_out_etiquetas =[]
 
-        print "brigadas",brigadas
-
-
 
         emp_ruta_periodo = self.obtener_emp_ruta_periodo(cod_oper=cod_oper,codsede=codsede)
-
 
         brigadas_periodo = [{'COD_OPER':e[0],'CODSEDE':e[1],'BRIGADA':e[2],'PERIODO':e[3] ,'SEDE_OPERATIVA':e[4] }  for e in  list(set(( d['COD_OPER'],d['CODSEDE'],d['BRIGADA'] ,d['PERIODO'],d['SEDE_OPERATIVA']) for d in emp_ruta_periodo))]
 
         rutas_periodo =[ {'COD_OPER': e[0], 'CODSEDE': e[1], 'BRIGADA': e[2],'RUTA':e[3],'PERIODO':e[4],'SEDE_OPERATIVA':e[5]}
             for e in list(set((d['COD_OPER'], d['CODSEDE'], d['BRIGADA'],d['RUTA'] , d['PERIODO']  ,d['SEDE_OPERATIVA']) for d in emp_ruta_periodo))]
 
+        brigadas  =  [{'COD_OPER':e[0],'CODSEDE':e[1],'BRIGADA':e[2] ,'SEDE_OPERATIVA':e[3] }  for e in  list(set(( d['COD_OPER'],d['CODSEDE'],d['BRIGADA'] ,d['SEDE_OPERATIVA']) for d in brigadas_periodo))]
 
         for brigada in brigadas:
             manzanas_brigada = self.obtener_rutas_manzanas_por_brigada(brigada)
@@ -526,7 +542,7 @@ class CroquisListadoCENEC:
         if (programacion == 1 and len(brigadas)>0 ):
             for brigada in brigadas:
                 brigadas_periodo_temp = [e for e in brigadas_periodo if (e['CODSEDE'] == brigada['CODSEDE'] and e['BRIGADA'] == brigada['BRIGADA'])]
-                manzanas_brigada=self.obtener_rutas_manzanas_por_brigada(brigada)
+                manzanas_brigada = self.obtener_rutas_manzanas_por_brigada(brigada)
 
                 rutas_emp =[{'COD_OPER': e[0], 'CODSEDE': e[1], 'BRIGADA': e[2], 'RUTA': e[3], 'SEDE_OPERATIVA': e[4],'EMPADRONADOR':e[5]}
                     for e in list(set(
@@ -536,25 +552,25 @@ class CroquisListadoCENEC:
                 self.procesar_generacion_programacion(brigada,manzanas_brigada,rutas_emp)
 
         if(importar_capas == 1 and len(brigadas)>0):
-                self.importar_capas(zonas, cod_oper)
+            self.importar_capas(zonas, cod_oper)
 
         if (procesar_etiquetas == 1):
-            for periodo in PERIODOS:
+            for periodo in self.periodos:
                 brigada_out_etiquetas =[]
 
                 output_periodo_etiquetas = path.join(self.path_etiquetas,'{cod_oper}{periodo}{codsede}.pdf'.format(cod_oper=cod_oper,periodo=periodo, codsede = codsede))
 
-                brigadas_periodo = [e for e in brigadas_periodo if int(e['PERIODO']) == int(periodo)  ]
+                brigadas_periodo_t = [e for e in brigadas_periodo if int(e['PERIODO']) == int(periodo)  ]
 
                 pdfDoc = arcpy.mapping.PDFDocumentCreate(output_periodo_etiquetas)
 
-                brigadas_periodo_sort = sorted (brigadas_periodo, key=lambda k: [k['BRIGADA']] )
+                brigadas_periodo_sort = sorted (brigadas_periodo_t, key=lambda k: [k['BRIGADA']] )
 
-                print 'periodo', periodo
+                #print 'periodo', periodo
                 for brigada_periodo in brigadas_periodo_sort:
                     rutas_emp_periodo = [e for e in emp_ruta_periodo if (
-                                e['CODSEDE'] == brigada_periodo['CODSEDE'] and e['BRIGADA'] == brigada_periodo[
-                            'BRIGADA'] and e['PERIODO'] == brigada_periodo['PERIODO'])]
+                                e['CODSEDE'] == brigada_periodo['CODSEDE'] and e['BRIGADA'] == brigada_periodo['BRIGADA']
+                                and e['PERIODO'] == brigada_periodo['PERIODO'])]
 
                     rutas_temp = sorted(rutas_emp_periodo, key=lambda k: [k['RUTA'], k['EMPADRONADOR']])
                     data.extend(rutas_temp)
@@ -565,18 +581,20 @@ class CroquisListadoCENEC:
                 pdfDoc.saveAndClose()
 
         for brigada in brigadas:
-            brigadas_periodo_temp = [e for e in brigadas_periodo if (e['CODSEDE'] == brigada['CODSEDE'] and e['BRIGADA'] == brigada['BRIGADA'])]
-            manzanas_brigada=self.obtener_rutas_manzanas_por_brigada(brigada)
-            rutas_emp =[{'COD_OPER': e[0], 'CODSEDE': e[1], 'BRIGADA': e[2], 'RUTA': e[3], 'SEDE_OPERATIVA': e[4],'EMPADRONADOR':e[5]}
-                for e in list(set(
-                (d['COD_OPER'], d['CODSEDE'], d['BRIGADA'], d['RUTA'], d['SEDE_OPERATIVA'],d['EMPADRONADOR']) for d in
-                emp_ruta_periodo if d['COD_OPER']==brigada['COD_OPER'] and d['CODSEDE']==brigada['CODSEDE'] and  d['BRIGADA']==brigada['BRIGADA'] ))]
+            brigadas_periodo_temp = [e for e in brigadas_periodo if (e['CODSEDE'] == brigada['CODSEDE'] and e['BRIGADA'] == brigada['BRIGADA'] )]
+            manzanas_brigada = self.obtener_rutas_manzanas_por_brigada(brigada)
+            #rutas_emp =[{'COD_OPER': e[0], 'CODSEDE': e[1], 'BRIGADA': e[2], 'RUTA': e[3], 'SEDE_OPERATIVA': e[4],'EMPADRONADOR':e[5]}
+            #    for e in list(set(
+            #    (d['COD_OPER'], d['CODSEDE'], d['BRIGADA'], d['RUTA'], d['SEDE_OPERATIVA'],d['EMPADRONADOR']) for d in
+            #    emp_ruta_periodo if d['COD_OPER']==brigada['COD_OPER'] and d['CODSEDE']==brigada['CODSEDE'] and  d['BRIGADA']==brigada['BRIGADA'] ))]
 
             for brigada_periodo in brigadas_periodo_temp:
                 rutas = [e for e in rutas_periodo if (e['CODSEDE'] == brigada_periodo['CODSEDE'] and e['BRIGADA'] == brigada_periodo['BRIGADA'] and e['PERIODO'] == brigada_periodo['PERIODO']) ]
                 rutas_emp_periodo = [e for e in emp_ruta_periodo if (e['CODSEDE'] == brigada_periodo['CODSEDE'] and e['BRIGADA'] == brigada_periodo['BRIGADA'] and e['PERIODO'] == brigada_periodo['PERIODO']) ]
                 list_out_croquis_brigada = []
                 lista_emp_brigada_est = []
+
+                #rutas_manzanas_brigada = self.obtener_rutas_manzanas_por_brigada(brigada_periodo)
                 rutas_manzanas_brigada = [e for e in manzanas_brigada if (e['CODSEDE'] == brigada_periodo['CODSEDE'] and e['BRIGADA'] == brigada_periodo['BRIGADA'] and e['PERIODO'] == brigada_periodo['PERIODO']) ]
                 zonas_brigada = [{'UBIGEO': e[0], 'ZONA': e[1], 'DEPARTAMENTO': e[2], 'PROVINCIA': e[3],
                                   'DISTRITO': e[4], 'CODDPTO': e[5], 'CODPROV': e[6], 'CODDIST': e[7], 'CODCCPP': e[8],
@@ -591,20 +609,10 @@ class CroquisListadoCENEC:
                 output_brigada = path.join(self.path_listado,
                                            '{cod_oper}-{periodo}-{sede}-{brigada}.pdf'.format(cod_oper=brigada_periodo['COD_OPER'],periodo=brigada_periodo['PERIODO'],sede=brigada_periodo['CODSEDE'],
                                                                                  brigada=brigada_periodo['BRIGADA']))
-                #print "zonas_brigada>>>", zonas_brigada
-                # rutas_emp_temp=sorted(rutas_emp,key = lambda k:k['EMPADRONADOR'])
-                #print 'brigada>>>', brigada_periodo
-                #print 'rutas_emp_periodo>>>', rutas_emp_periodo
+
                 data = [brigada_periodo]
                 rutas_temp = sorted(rutas_emp_periodo, key=lambda k: [k['RUTA'],k['EMPADRONADOR']])
                 data.extend(rutas_temp)
-
-
-                #if (procesar_etiquetas == 1):
-#
-                #    brigada_out_etiqueta=self.procesar_etiquetas(data)
-                #    brigada_out_etiquetas.append(brigada_out_etiqueta)
-
 
                 zonas_brigada_sorted = zonas_brigada
 
@@ -613,7 +621,7 @@ class CroquisListadoCENEC:
                     for zona in zonas_brigada_sorted:
                         filter_rutas_manzanas = [d for d in rutas_manzanas_brigada if
                                                  (d['UBIGEO'] == zona['UBIGEO'] and d['ZONA'] == zona['ZONA'] and d['PERIODO'] == zona['PERIODO'] )]
-                        #and e['PERIODO'] == ruta['PERIODO']
+
                         cant_est = 0
                         mensaje_manzanas = u'<BOL>OBSERVACIONES: </BOL>El area de empadronamiento comprende las manzanas '
                         for count, ruta_manzana in enumerate(filter_rutas_manzanas, 1):
