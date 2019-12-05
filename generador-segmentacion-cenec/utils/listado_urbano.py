@@ -130,14 +130,33 @@ def listado_ruta(info, output):
     ruta = cab["RUTA"]
     empadronador = ""
     cod_emp = cab["EMP"]
+    cod_oper = cab["COD_OPER"]
 
     Plantilla = getSampleStyleSheet()
 
     Elementos = []
 
+    if cod_oper != '90':
+        cab['TITULO'] = 'LISTADO DE CENTROS POBLADOS Y MANZANAS DEL EMPADRONADOR'
+        cab['LABEL_B'] = 'B. NOMBRES Y APELLIDOS DEL EMPADRONADOR'
+        cab['LABEL_BRIGADA'] = 'BRIGADA:'
+        cab['LABEL_EMP'] = 'EMPADRONADOR:'
+        cab['DOC'] = 'DOC.CENEC.03.08'
+        cab['PIE_TITLE'] = 'EMPADRONADOR'
+        cab['PIE_CONTENT'] = u"""Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna
+            modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente."""
+
+    else:
+        cab['TITULO'] = 'LISTADO DE CENTROS POBLADOS Y MANZANAS DEL/DE LA REGISTRADOR/A'
+        cab['LABEL_B'] = 'B. NOMBRES Y APELLIDOS DEL/DE LA REGISTRADOR/A:'
+        cab['LABEL_BRIGADA'] = 'EQUIPO:'
+        cab['LABEL_EMP'] = 'REGISTRADOR/A:'
+        cab['DOC'] = 'DOC.CENEC.03.20'
+        cab['PIE_TITLE'] = 'REGISTRADOR/A'
+        cab['PIE_CONTENT'] = u'Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de registro, deben ser registrados.'
 
     Titulo = Paragraph(u'V CENSO NACIONAL ECONÓMICO <br/> 2019 - 2020',h_sub_tile)
-    SubTitulo = Paragraph(u'<strong>LISTADO DE CENTROS POBLADOS Y MANZANAS DEL EMPADRONADOR</strong>', h_sub_tile_2)
+    SubTitulo = Paragraph(u'<strong>{}</strong>'.format(cab['TITULO']), h_sub_tile_2)
 
 
     CabeceraPrincipal = [[Titulo,'',''],
@@ -159,12 +178,12 @@ def listado_ruta(info, output):
 
 
     Filas = [
-        ['', '', '', '', 'DOC.CENEC.03.08'],
-        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRES Y APELLIDOS DEL EMPADRONADOR</b>',h11)],
+        ['', '', '', '', u'{}'.format(cab['DOC'])],
+        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>{}</b>'.format(cab['LABEL_B']),h11)],
         [Paragraph(u'<b>SEDE OPERATIVA: </b>', h1), u'{}'.format(coddpto), u'{}'.format(departamento), '',u'{}'.format(empadronador)],
-        [Paragraph(u'<b>BRIGADA: </b>', h1), u'{}'.format(brigada), '', '', ''],
+        [Paragraph(u'<b>{} </b>'.format(cab['LABEL_BRIGADA']), h1), u'{}'.format(brigada), '', '', ''],
         [Paragraph(u'<b>RUTA: </b>', h1), u'{}'.format(ruta),'', '', ''],
-        [Paragraph(u'<b>EMPADRONADOR: </b>', h1), u'{}'.format(cod_emp), '', '', ''],
+        [Paragraph(u'<b>{} </b>'.format(cab['LABEL_EMP']), h1), u'{}'.format(cod_emp), '', '', ''],
         #cod_emp
         ]
 
@@ -287,8 +306,8 @@ def listado_ruta(info, output):
                             bottomMargin=0.5 * cm,)
 
 
-    PiePagina = [[Paragraph(u'{}'.format(u"EMPADRONADOR"), h3)],
-                 [Paragraph(u'{}'.format(u"Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente."),h3)]]
+    PiePagina = [[Paragraph(u'{}'.format(u"{}".format(cab['PIE_TITLE'])), h3)],
+                 [Paragraph(u'{}'.format(u"{}".format(cab['PIE_CONTENT'])),h3)]]
 
     Tabla_Pie = Table(PiePagina, colWidths = [19.5 * cm],rowHeights=[0.8 * cm,1.4* cm])
 
@@ -309,16 +328,31 @@ def listado_brigada(info, output):
     coddpto = cab["CODSEDE"]
     departamento = cab["SEDE_OPERATIVA"]
     brigada = cab["BRIGADA"]
-
+    cod_oper = cab["COD_OPER"]
     empadronador = ""
 
     Plantilla = getSampleStyleSheet()
 
     Elementos = []
+    if cod_oper != '90':
+        cab['TITULO'] = 'LISTADO DE EMPADRONADORES POR MANZANAS Y ESTABLECIMIENTOS'
+        cab['LABEL_B'] = 'B. NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA'
+        cab['LABEL_BRIGADA'] = 'BRIGADA:'
+        cab['DOC'] = 'DOC.CENEC.03.10'
+        cab['PIE_TITLE'] = 'JEFE DE BRIGADA'
+        cab['PIE_CONTENT'] = u"""Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá
+        efectuar la actualización correspondiente."""
 
+    else:
+        cab['TITULO'] = 'LISTADO DE REGISTRADORES POR MANZANAS Y ESTABLECIMIENTOS'
+        cab['LABEL_B'] = 'B. NOMBRES Y APELLIDOS DEL/DE LA JEFE/A DE EQUIPO:'
+        cab['LABEL_BRIGADA'] = 'EQUIPO:'
+        cab['DOC'] = 'DOC.CENEC.03.22'
+        cab['PIE_TITLE'] = 'JEFE/A DE EQUIPO'
+        cab['PIE_CONTENT'] = u'Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de registro, deben ser registrados.'
 
     Titulo = Paragraph(u'V CENSO NACIONAL ECONÓMICO <br/> 2019 - 2020',h_sub_tile)
-    SubTitulo = Paragraph(u'<strong>LISTADO DE EMPADRONADORES POR MANZANAS Y ESTABLECIMIENTOS</strong>', h_sub_tile_2)
+    SubTitulo = Paragraph(u'<strong>{}</strong>'.format(cab['TITULO']), h_sub_tile_2)
 
 
     CabeceraPrincipal = [[Titulo,'',''],
@@ -340,10 +374,10 @@ def listado_brigada(info, output):
 
 
     Filas = [
-        ['', '', '', '', 'DOC.CENEC.03.10'],
-        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>B. NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA</b>',h11)],
+        ['', '', '', '', cab['DOC']],
+        [ Paragraph(u'<b>A. ORGANIZACIÓN DE CAMPO</b>',h11), '', '', '', Paragraph(u'<b>{}</b>'.format(cab['LABEL_B']),h11)],
         [Paragraph(u'<b>SEDE OPERATIVA: </b>', h1), u'{}'.format(coddpto), u'{}'.format(departamento), '',u'{}'.format(empadronador)],
-        [Paragraph(u'<b>BRIGADA: </b>', h1), u'{}'.format(brigada), '', '', ''],
+        [Paragraph(u'<b>{}: </b>'.format(cab['LABEL_BRIGADA']), h1), u'{}'.format(brigada), '', '', ''],
         ]
 
     Tabla = Table(Filas, colWidths=[3.7 * cm, 1 * cm, 6.3 * cm, 7 * cm,  8.9 * cm],
@@ -451,8 +485,8 @@ def listado_brigada(info, output):
                             bottomMargin=0.5 * cm,)
 
 
-    PiePagina = [[Paragraph(u'{}'.format(u"JEFE DE BRIGADA"), h3)],
-                 [Paragraph(u'{}'.format(u"Todos los establecimientos que se encuentren ubicados en las manzanas que conforman su área de empadronamiento, deben ser empadronados. Si en su recorrido encuentra alguna modificación o una manzana no considerada en la cartografía deberá efectuar la actualización correspondiente"),h3)]]
+    PiePagina = [[Paragraph(u'{}'.format(u"{}".format(cab['PIE_TITLE'])), h3)],
+                 [Paragraph(u'{}'.format(u"{}".format(cab['PIE_CONTENT'])),h3)]]
 
     Tabla_Pie = Table(PiePagina, colWidths = [26.8 * cm],rowHeights=[0.8 * cm,1.6* cm])
 

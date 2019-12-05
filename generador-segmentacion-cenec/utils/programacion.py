@@ -64,7 +64,7 @@ def insertImage(ws):
     img2.drawing.height = 90
     ws.add_image(img2, "X1")
 
-def cuerpo_border(ws, alto):
+def cuerpo_border(ws, filas):
     ws.column_dimensions['A'].width = 2
     ws.column_dimensions['B'].width = 6
     ws.column_dimensions['C'].width = 9
@@ -95,12 +95,20 @@ def cuerpo_border(ws, alto):
 
     columns = range(2,26)
 
-    rows = range(12, 37)
+
+    rows = range(12, filas+3)
     for col in columns:
         for row in rows:
             ws.cell(row=row, column=col).border = thin_border
             ws.cell(row=row, column=col).alignment = Alignment(horizontal="center", vertical="center",wrap_text=True)
             ws.cell(row=row, column=col).font = Font(bold=True, size=10)
+
+    #rows = range(12, 37)
+    #for col in columns:
+    #    for row in rows:
+    #        ws.cell(row=row, column=col).border = thin_border
+    #        ws.cell(row=row, column=col).alignment = Alignment(horizontal="center", vertical="center",wrap_text=True)
+    #        ws.cell(row=row, column=col).font = Font(bold=True, size=10)
 
 def cuerpo_sede_border(ws, filas):
     ws.column_dimensions['A'].width = 2
@@ -178,9 +186,8 @@ def llenarTotal(ws):
     for x in abc('F', 'O'):
         ws['{}13'.format(x)] = "=SUM({}14: {}100)".format(x, x)
 
-def cabecera(data_cabecera,wb):
-
-
+def cabecera(data_cabecera,wb,filas):
+    cod_oper=data_cabecera['COD_OPER']
     ws = wb.get_sheet_by_name(SHEEP)
 
     ws["D1"] = u'V CENSO NACIONAL ECONÓMICO 2019 - 2020'
@@ -192,23 +199,41 @@ def cabecera(data_cabecera,wb):
     ws["B7"] = u'SEDE OPERATIVA'
     ws["E7"] = data_cabecera['CODSEDE']
     ws["F7"] = data_cabecera['SEDE_OPERATIVA']
-
-    ws["B8"] = u'BRIGADA'
+    if cod_oper != '90':
+        ws["B8"] = u'BRIGADA'
+    else:
+        ws["B8"] = u'EQUIPO'
     ws["E8"] = data_cabecera['BRIGADA']
 
     if 'RUTA' in data_cabecera.keys() :
-        ws["B9"] = u'RUTA'
-        ws["E9"] = data_cabecera['RUTA']
-        ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL EMPADRONADOR'
-        ws["B10"] = u'EMPADRONADOR'
-        ws["E10"] = data_cabecera['EMPADRONADOR']
-        ws["N10"] = u'DOC.CENEC.03.11'
-        ws["N6"] = u'B. NOMBRE Y APELLIDO DEL EMPADRONADOR'
+
+        if cod_oper != '90':
+            ws["B9"] = u'RUTA'
+            ws["E9"] = data_cabecera['RUTA']
+            ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL EMPADRONADOR'
+            ws["B10"] = u'EMPADRONADOR'
+            ws["E10"] = data_cabecera['EMPADRONADOR']
+            ws["N10"] = u'DOC.CENEC.03.11'
+            ws["N6"] = u'B. NOMBRE Y APELLIDO DEL EMPADRONADOR'
+        else:
+            ws["B9"] = u'RUTA'
+            ws["E9"] = data_cabecera['RUTA']
+            ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL/ DE LA REGISTRADOR/A'
+            ws["B10"] = u'REGISTRADOR/A'
+            ws["E10"] = data_cabecera['EMPADRONADOR']
+            ws["N10"] = u'DOC.CENEC.03.23'
+            ws["N6"] = u'B. NOMBRE Y APELLIDO DEL EMPADRONADOR'
+
 
     else:
-        ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL JEFE DE BRIGADA'
-        ws["N10"] = u'DOC.CENEC.03.12'
-        ws["N6"] = u'B. NOMBRE Y APELLIDO DEL JEFE DE BRIGADA'
+        if cod_oper != '90':
+            ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL JEFE DE BRIGADA'
+            ws["N10"] = u'DOC.CENEC.03.12'
+            ws["N6"] = u'B. NOMBRE Y APELLIDO DEL JEFE DE BRIGADA'
+        else:
+            ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL/DE LA JEFE/A DE EQUIPO'
+            ws["N10"] = u'DOC.CENEC.03.24'
+            ws["N6"] = u'B. NOMBRE Y APELLIDO DEL/DE LA JEFE/A DE EQUIPO'
 
     ws["N7"] = u''
 
@@ -245,9 +270,11 @@ def cabecera(data_cabecera,wb):
     ws["X13"] = u'TOTAL VIÁTICOS'
     ws["Y13"] = u'TOTAL GENERAL s/.'
 
-    ws["B34"] = u'TOTAL DEL PERIODO'
-    ws["B35"] = u'TOTAL DE LA RUTA'
-    ws["B36"] = u'OBSERVACIONES'
+    ws["B{}".format(filas)] = u'TOTAL DEL PERIODO'
+    ws["B{}".format(filas+1)] = u'TOTAL DE LA RUTA'
+    ws["B{}".format(filas+2)] = u'OBSERVACIONES'
+
+
 
     celdasCabecera = [
         'D1:W1','D2:W2','D4:W4',
@@ -275,19 +302,25 @@ def cabecera(data_cabecera,wb):
         'E8:F8',
         'E9:F9',
         'E10:F10',
-        'B34:J34',
-        'B35:J35',
-        'B36:J36',
-        'K36:Y36',
+        'B{row}:J{row}'.format(row=filas),
+        'B{row}:J{row}'.format(row=filas + 1),
+        'B{row}:J{row}'.format(row=filas + 2),
+        'K{row}:Y{row}'.format(row=filas + 2),
+
     ]
 
     for cells in celdasCabecera:
         ws.merge_cells(cells)
 
+    list = abc('O', 'Y')
 
-    for x in abc('O', 'Y'):
-        ws['{}34'.format(x)] = "=SUM({}14: {}33)".format(x, x)
-        ws['{}35'.format(x)] = "=SUM({}14: {}33)".format(x, x)
+
+
+    for x in list:
+        ws['{column}{row}'.format(column=x ,row=filas)] = "=SUM({column}{ini}: {column}{fin})".format(column = x,ini = FILA_INICIAL ,fin = filas-1)
+        ws['{column}{row}'.format(column=x,row=filas+1)] = "=SUM({column}{ini}: {column}{fin})".format(column = x,ini = FILA_INICIAL ,fin = filas-1)
+
+
 
     cells_cabecera=[]
 
@@ -321,14 +354,13 @@ def cabecera(data_cabecera,wb):
 
 def cabecera_sede(data_cabecera,wb,filas):
 
-
     ws = wb.get_sheet_by_name(SHEEP)
-
 
     ws["D1"] = u'V CENSO NACIONAL ECONÓMICO 2019 - 2020'
     ws["D2"] = u'2019 - 2020'
     ws["D4"] = u'PROGRAMACIÓN DE RUTAS DE EMPADRONADOR POR SEDE'
 
+    #ws["D4"] = u'PROGRAMACIÓN DE RUTAS DE EMPADRONADOR POR SEDE'
 
     ws["B6"] = u'A. ORGANIZACION DE CAMPO '
     ws["B7"] = u'SEDE OPERATIVA'
@@ -402,8 +434,6 @@ def cabecera_sede(data_cabecera,wb,filas):
         'B6:H6',
         'B7:C7',
         'E7:H7',
-
-
         'B{row}:M{row}'.format(row=filas),
         'B{row}:M{row}'.format(row=filas+1),
         'B{row}:M{row}'.format(row=filas+2),
@@ -446,11 +476,10 @@ def cabecera_sede(data_cabecera,wb,filas):
             ws['{}{}'.format(column, row)].border = thin_border
 
 
-    #list_cell = ['D1','D2','D4','B6','N6','B34','B35','B36']
     list_cell = ['D1', 'D2', 'D4', 'B6', 'N6']
     for cell in list_cell:
         ws[cell].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
-        #if cell not in ['B6','N6','B34','B35','B36']:
+
         if cell not in ['B6', 'N6']:
             ws[cell].font = Font(bold=True, size=16)
         else:
@@ -489,11 +518,17 @@ def excel2PDF(output,sheep=SHEEP,orientacion=1):
 def llenar_excel(info, output, alto):
     data_cabecera = info[0]
     wb = load_workbook(output)
-    cabecera(data_cabecera, wb)
+
+    filas = FILAS_DEFAULT
+    if(FILA_INICIAL+alto > FILAS_DEFAULT):
+        filas = FILA_INICIAL+alto
+
+    cabecera(data_cabecera, wb,filas)
     ws = wb.get_sheet_by_name(SHEEP)
     data_cuerpo = info[1]
+
     for row in range(0,alto):
-        i=row + 14
+        i=row + FILA_INICIAL
         x=data_cuerpo[row]
         ws["B{}".format(i)]=u'{}'.format(row+1)
         ws["C{}".format(i)]=u'{}'.format(x['UBIGEO'])
@@ -521,10 +556,26 @@ def llenar_excel(info, output, alto):
         ws["Y{}".format(i)]=float(x['TOTAL_GENERAL'])
 
     insertImage(ws)
-    cuerpo_border(ws, alto)
+    cuerpo_border(ws, filas)
     formatoCamposDecimal(ws)
 
-    colorCelda(ws)
+
+    #### text de color gris
+    ws['N6'].fill = titleFill
+
+    for row in range(6,8):
+        ws['B{}'.format(row)].fill = titleFill
+
+    list3 =abc('A', 'Y')
+
+    for x in list3:
+        ws['{}12'.format(x)].fill = titleFill
+        ws['{}13'.format(x)].fill = titleFill
+
+    for x in range(filas,filas+3):
+        ws['B{}'.format(x)].fill = titleFill
+
+
     wb.save(output)
     wb.close()
 
@@ -546,6 +597,7 @@ def llenar_excel_sede(info, output, alto):
     for row in range(0,alto):
         i=row + FILA_INICIAL
         x=data_cuerpo[row]
+
         ws["B{}".format(i)]=u'{}'.format(row+1)
 
         ws["C{}".format(i)] = str(x['BRIGADA']).zfill(3)
@@ -593,10 +645,12 @@ def llenar_excel_sede(info, output, alto):
         for q in lista2:
             ws["{}{}".format(p, q)].number_format = '0.00'
 
-    ws['N6'].fill = titleFill
+
 
 
     #### text de color gris
+
+    ws['N6'].fill = titleFill
     for row in range(6,8):
         ws['B{}'.format(row)].fill = titleFill
 

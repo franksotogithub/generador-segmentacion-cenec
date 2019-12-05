@@ -13,11 +13,22 @@ equipo=socket.gethostname()
 cnxn, cursor=cnx.connect_bd()
 lista_dist = [1]
 
-for i in range(20):
+while len(lista_dist) > 0:
     #lista_zonas = obtener_zonas(cursor,cnxn,cant_zonas=1)
-    proceso = subprocess.Popen("c:\Python27\ArcGIS10.3\python.exe segmentacion.py {ubigeo}".format(ubigeo='010101'), shell=True,stderr=subprocess.PIPE)
-    errores = proceso.stderr.read()
-    print errores
+    lista_dist = obtener_distritos(cursor, cnxn)
+    if len(lista_dist) > 0:
+        for el in lista_dist:
+            ubigeo = el['UBIGEO']
+            proceso = subprocess.Popen("python segmentacion.py {}".format(ubigeo), shell=True,stderr=subprocess.PIPE)
+            errores = proceso.stderr.read()
+            print errores
+            e=errores.split('\n')[-1]
+            if len(errores) > 0:
+                print 'algo salido mal'
+                actualizar_flag_proc_segm_distrito(cursor,cnxn,ubigeo, flag=3, equipo=equipo, error=e)
+            else:
+                print 'nada salio mal'
+                actualizar_flag_proc_segm_distrito(cursor,cnxn,ubigeo, flag=1, equipo=equipo)
 
 
 #for el in range(1000):

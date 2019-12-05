@@ -11,41 +11,18 @@ from conf import config
 #
 equipo=socket.gethostname()
 cnxn, cursor=cnx.connect_bd()
-lista_dist = [1]
-
-while len(lista_dist) > 0:
-    #lista_zonas = obtener_zonas(cursor,cnxn,cant_zonas=1)
-    lista_dist = obtener_distritos(cursor, cnxn)
-    if len(lista_dist) > 0:
-        for el in lista_dist:
-            ubigeo = el['UBIGEO']
-            proceso = subprocess.Popen("python segmentacion.py {}".format(ubigeo), shell=True,stderr=subprocess.PIPE)
-            errores = proceso.stderr.read()
-            print errores
-            e=errores.split('\n')[-1]
-            if len(errores) > 0:
-                print 'algo salido mal'
-                actualizar_flag_proc_segm_distrito(cursor,cnxn,ubigeo, flag=3, equipo=equipo, error=e)
-            else:
-                print 'nada salio mal'
-                actualizar_flag_proc_segm_distrito(cursor,cnxn,ubigeo, flag=1, equipo=equipo)
+COD_OPER = '90'
+CANT_EST_MAX = 480
+CANT_ZONAS = 100
 
 
-#for el in range(1000):
-#    lista_zonas = obtener_zonas(cursor,cnxn,cant_zonas=1)
-#    if len(lista_zonas)>0:
-#        for el in lista_zonas:
-#            ubigeo = el['UBIGEO']
-#            zona = el['ZONA']
-#            proceso = subprocess.Popen("python segmentacion.py {} {}".format(ubigeo, zona), shell=True,stderr=subprocess.PIPE)
-#            errores = proceso.stderr.read()
-#            e=errores.split('\n')[-1]
-#            if len(e) > 0:
-#                print 'algo salido mal'
-#                actualizar_flag_proc_segm(cursor,cnxn,ubigeo, zona, flag=3, equipo=equipo, error=e)
-#            else:
-#                print 'nada salio mal'
-#                actualizar_flag_proc_segm(cursor,cnxn,ubigeo, zona, flag=1, equipo=equipo)
-#    else:
-#        break
+for i in range(20):
+    proceso = subprocess.Popen("c:\Python27\ArcGIS10.3\python.exe segmentacion.py {cod_oper} {cant_est_max} {cant_zonas}".format(cod_oper=COD_OPER, cant_est_max = CANT_EST_MAX, cant_zonas =CANT_ZONAS),
+                               shell=True,stderr=subprocess.PIPE)
+    errores = proceso.stderr.read()
+    print errores
+
+
+
+
 

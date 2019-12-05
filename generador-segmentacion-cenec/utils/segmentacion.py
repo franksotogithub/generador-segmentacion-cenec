@@ -12,15 +12,21 @@ from datetime import *
 from  conf import config
 arcpy.env.outputCoordinateSystem = arcpy.SpatialReference(4326)
 import math
-UBIGEO='{}'.format(sys.argv[1])
+#UBIGEO='{}'.format(sys.argv[1])
+#COD_OPER = '90'
+#CANT_EST_MAX = 150
+#CANT_ZONAS = 100
+COD_OPER = '{}'.format(sys.argv[1])
+CANT_EST_MAX = int(sys.argv[2])
+CANT_ZONAS = int(sys.argv[3])
 
 class SegmentacionCENEC:
     zonas =[]
 
-    def __init__(self,distrito, cant_est_max=150):
+    def __init__(self,cod_oper='01', cant_est_max=150,cant_zonas=100):
         self.conn, self.cursor = cnx.connect_bd()
-        self.distrito=distrito
-        self.cant_zonas= 0
+        #self.distrito=distrito
+        self.cant_zonas= cant_zonas
         self.cant_est_max = cant_est_max
         self.list_aeu_manzanas =[]
         self.list_aeu = []
@@ -30,7 +36,9 @@ class SegmentacionCENEC:
         self.path_aeu = path.join(self.path_trabajo, 'aeu')
         self.rutas =[]
         self.rutas_manzanas = []
-        self.zonas = obtener_zonas(self.cursor, self.conn, cant_zonas=100)
+        self.cod_oper = cod_oper
+        self.zonas = obtener_zonas(self.cursor, self.conn,self.cod_oper,self.cant_zonas)
+
 
     def importar_capas_segmentacion(self):
         arcpy.env.overwriteOutput = True
@@ -44,7 +52,8 @@ class SegmentacionCENEC:
         where_ubigeo = expresion.expresion(data, ['UBIGEO'])
 
         list_capas = [
-            ["{}.sde.TB_MANZANA".format(config.DB_NAME), "tb_manzana_procesar", 2],
+
+            ["{}.sde.TB_OPER_MANZANA".format(config.DB_NAME), "tb_manzana_procesar", 2],
 
         ]
 
@@ -57,7 +66,8 @@ class SegmentacionCENEC:
             where = "({}) ".format(where)
 
             x = arcpy.MakeQueryLayer_management(path_conexion, 'capa{}'.format(i),
-                                                "select * from {} where  {}  ".format(capa[0], where))
+                                                "select * from {} where  ({}) AND (COD_OPER = '{}') ".format(
+                                                    capa[0], where,self.cod_oper))
 
             temp = arcpy.CopyFeatures_management(x, '{}/{}'.format(self.path_trabajo,capa[1]))
 
@@ -100,12 +110,15 @@ class SegmentacionCENEC:
 
         n = 0
 
-
+        ###en caso que la zona tenga alguna manzana con cantidad de establecimientos mayor a
+        ###a la cantidad de establecimientos maximo no habra segunda pasada
         for m in self.manzanas:
             total_est_zona = int(m['CANT_EST']) + int(m['PUESTO']) + total_est_zona
             if int(m['TOTAL_EST']) > self.cant_est_max:
                 flag_segunda_pasada = 0
 
+        ###en caso que el ototal de establecimientos en la zona sea menor que la cantidad max de establecimientos por aeu
+        ###no se tomara para una segunda pasada
         if (total_est_zona < self.cant_est_max):
             flag_segunda_pasada = 0
 
@@ -126,15 +139,15 @@ class SegmentacionCENEC:
             total_est = int(m['CANT_EST']) + int(m['PUESTO'])
 
             if (flag_segunda_pasada == 1 and numero_aeu == n):
-
                 restriccion = self.cant_est_max
 
-
             if (total_est > self.cant_est_max):
+                if not (anterior_manzana == 1 and cant_est_agrupados == 0):
+                    numero_aeu = numero_aeu + 1
 
-                if anterior_manzana == 1:  # la anterior manzana es una menor o igual a 16 viviendas
-                    if cant_est_agrupados != 0:
-                        numero_aeu = numero_aeu + 1
+                #if (anterior_manzana == 1 and  cant_est_agrupados > 0) or  :  # la anterior manzana es una menor de self.cant_est_max (cantidad maxima de est)
+                #    if cant_est_agrupados != 0:
+                #        numero_aeu = numero_aeu + 1
 
                 cant_est_agrupados = 0
                 anterior_manzana = 2  #La manzana nueva tiene mas de self.cant_est_max
@@ -224,11 +237,12 @@ class SegmentacionCENEC:
 
     def obtener_manzanas(self,zona):
         query_manzanas = """
-                            SELECT B.*,A.MARCO_FIN CANT_EST ,A.MARCO_FIN  + A.PUESTO TOTAL_EST, A.MERCADO MERCADO, A.PUESTO PUESTO  ,A.FALSO_COD FALSO_COD FROM TRABAJO_PSEUDO_CODIGO A
-                            INNER JOIN sde.TB_MANZANA  B ON A.UBIGEO= B.UBIGEO AND A.ZONA=B.ZONA AND A.MANZANA=B.MANZANA 
-                            where b.UBIGEO = '{ubigeo}' and b.ZONA = '{zona}' 
-                            ORDER BY B.UBIGEO,B.ZONA,A.FALSO_COD 
-        """.format(ubigeo=zona['UBIGEO'], zona=zona['ZONA'])
+                            
+                            select b.UBIGEO,b.ZONA , b.MANZANA, b.IDMANZANA,b.COD_OPER ,b.MARCO_FIN CANT_EST ,b.MARCO_FIN  + b.PUESTO TOTAL_EST, b.MERCADO MERCADO, b.PUESTO PUESTO  ,b.FALSO_COD FALSO_COD  from sde.TB_OPER_MANZANA b
+                            where b.UBIGEO = '{ubigeo}' and b.ZONA = '{zona}' and  b.COD_OPER = '{cod_oper}'
+                            ORDER BY b.UBIGEO,b.ZONA,b.FALSO_COD 
+                             
+        """.format(ubigeo=zona['UBIGEO'], zona=zona['ZONA'] ,cod_oper =self.cod_oper)
         self.manzanas = to_dict(self.cursor.execute(query_manzanas))
 
     def procesar_aeus(self):
@@ -254,8 +268,8 @@ class SegmentacionCENEC:
 
         for zona in self.zonas:
             sql_query = """
-                    DELETE SDE.SEGM_U_AEU where ubigeo='{ubigeo}' and zona='{zona}'
-                    """.format(ubigeo=zona['UBIGEO'], zona=zona['ZONA'])
+                    DELETE SDE.SEGM_U_AEU where ubigeo='{ubigeo}' and zona='{zona}' and cod_oper = '{cod_oper}'
+                    """.format(ubigeo=zona['UBIGEO'], zona=zona['ZONA'],cod_oper=self.cod_oper)
             self.cursor.execute(sql_query)
             self.conn.commit()
 
@@ -281,17 +295,18 @@ class SegmentacionCENEC:
                     a.GABINETE =0,
                     a.PK_AEU = a.ubigeo+a.zona+a.aeu,
                     a.CODSEDE = B.CODSEDE,
-                    a.CODSUBSEDE =0 
+                    a.CODSUBSEDE =0
+                     
                     FROM sde.SEGM_U_AEU A
-                    inner join  tb_ZONA b on A.UBIGEO= B.UBIGEO AND A.ZONA=B.ZONA
+                    inner join sde.TB_ZONA B ON A.UBIGEO= B.UBIGEO AND A.ZONA = B.ZONA 
+                    where A.COD_OPER ={cod_oper}
                     
-                    
+                    /*
                      update  sde.SEGM_U_AEU
                      set  PERSONAL_AD = CEILING ( cast (total_est as float) /150 ) 
                      where TOTAL_EST >150  AND N_MANZANAS=1
-                            
-                  
-        """
+                    */
+        """.format(cod_oper=self.cod_oper)
         self.cursor.execute(sql_query)
         self.conn.commit()
 
@@ -315,8 +330,8 @@ class SegmentacionCENEC:
         for count, aeu in enumerate(self.list_aeu_final, 1):
 
             if count == 1:
-                insert_sql = """ insert into sde.[SEGM_U_AEU_TABULAR]([OBJECTID],ubigeo,zona,aeu,n_manzanas,total_est,cant_est,mercado,puesto,techo)  """
-            insert_sql = """{insert_sql} select {i},'{ubigeo}','{zona}','{aeu}','{n_manzanas}',{total_est},{cant_est},{mercado},{puesto},{techo} """.format( i = cant_reg + count,insert_sql=insert_sql,
+                insert_sql = """ insert into sde.[SEGM_U_AEU_TABULAR]([OBJECTID],ubigeo,zona,aeu,n_manzanas,total_est,cant_est,mercado,puesto,techo,cod_oper)  """
+            insert_sql = """{insert_sql} select {i},'{ubigeo}','{zona}','{aeu}','{n_manzanas}',{total_est},{cant_est},{mercado},{puesto},{techo},{cod_oper} """.format( i = cant_reg + count,insert_sql=insert_sql,
                                                                                              ubigeo=aeu['UBIGEO'],
                                                                                              zona=aeu['ZONA'],
                                                                                              aeu=str(aeu['AEU']).zfill(3),
@@ -325,7 +340,8 @@ class SegmentacionCENEC:
                                                                                              total_est = int(aeu['TOTAL_EST']),
                                                                                              mercado = int(aeu['MERCADO']),
                                                                                              puesto = int(aeu['PUESTO']),
-                                                                                             techo = int(self.cant_est_max)
+                                                                                             techo = int(self.cant_est_max),
+                                                                                             cod_oper = self.cod_oper
                                                                                                 )
             if count < len(self.list_aeu_final):
                 insert_sql = """{insert_sql} union all """.format(insert_sql=insert_sql)
@@ -342,8 +358,8 @@ class SegmentacionCENEC:
 
         for zona in self.zonas:
             sql_query = """
-                    DELETE sde.[SEGM_U_AEU_MANZANA] where ubigeo='{ubigeo}' and zona='{zona}'
-                    """.format(ubigeo=zona['UBIGEO'], zona=zona['ZONA'])
+                    DELETE sde.[SEGM_U_AEU_MANZANA] where ubigeo='{ubigeo}' and zona='{zona}' and cod_oper ='{cod_oper}'
+                    """.format(ubigeo=zona['UBIGEO'], zona=zona['ZONA'], cod_oper =self.cod_oper)
             self.cursor.execute(sql_query)
             self.conn.commit()
 
@@ -357,13 +373,14 @@ class SegmentacionCENEC:
         for count, aeu in enumerate(self.list_aeu_manzanas_final, 1):
 
             if count == 1:
-                insert_sql = """ insert into sde.[SEGM_U_AEU_MANZANA]([OBJECTID],ubigeo,zona,aeu,manzana,total_est)  """
-            insert_sql = """{insert_sql} select {i},'{ubigeo}','{zona}','{aeu}','{manzana}',{cant_est} """.format( i = cant_reg + count,insert_sql=insert_sql,
+                insert_sql = """ insert into sde.[SEGM_U_AEU_MANZANA]([OBJECTID],ubigeo,zona,aeu,manzana,total_est,cod_oper)  """
+            insert_sql = """{insert_sql} select {i},'{ubigeo}','{zona}','{aeu}','{manzana}',{cant_est},{cod_oper} """.format( i = cant_reg + count,insert_sql=insert_sql,
                                                                                              ubigeo=aeu['UBIGEO'],
                                                                                              zona=aeu['ZONA'],
                                                                                              aeu=str(aeu['AEU']).zfill(3),
                                                                                              manzana=aeu['MANZANA'],
-                                                                                             cant_est=int(aeu['CANT_EST']) + int(aeu['PUESTO'])
+                                                                                             cant_est=int(aeu['CANT_EST']) + int(aeu['PUESTO']),
+                                                                                             cod_oper = self.cod_oper
                                                                                                                            )
             if count < len(self.list_aeu_manzanas_final):
                 insert_sql = """{insert_sql} union all """.format(insert_sql=insert_sql)
@@ -434,6 +451,7 @@ class SegmentacionCENEC:
                                   ["MERCADO", "SHORT", int(aeu["MERCADO"])],
                                   ["PUESTO", "SHORT", int(aeu["PUESTO"])],
                                   ["N_MANZANAS", "SHORT", int(len(list_aeu_man))],
+                                  ["COD_OPER","TEXT","'{}'".format(self.cod_oper)]
                               ]
 
 
@@ -448,12 +466,16 @@ class SegmentacionCENEC:
 
     def procesar_zonas(self):
         self.importar_capas_segmentacion()
+        print 'importar capas>>',datetime.today()
         self.procesar_aeus()
+        print 'procesar_aeus>>', datetime.today()
         self.exportar_resultados()
+        print 'exportar_resultados>>>>',datetime.today()
         self.list_aeu_manzanas_final = []
         self.list_aeu_final = []
 
 
-s= SegmentacionCENEC(distrito ={'UBIGEO':UBIGEO},cant_est_max =150)
+
+s= SegmentacionCENEC(cod_oper=COD_OPER,cant_est_max =CANT_EST_MAX,cant_zonas=CANT_ZONAS)
 s.procesar_zonas()
 s.conn.close()
