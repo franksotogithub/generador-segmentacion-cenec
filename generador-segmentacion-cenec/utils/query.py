@@ -104,5 +104,41 @@ def obtener_sedes(cursor,cod_oper='01'):
     order by 1
     """.format(cod_oper= cod_oper)
     sedes = to_dict(cursor.execute(query_sedes))
-
     return sedes
+
+def obtener_brigada_periodo(cursor,cod_oper='01',cant=1):
+
+    query_sedes="""
+                declare @table TABLE(cod_oper varchar(2), periodo int,codsede varchar(2),brigada varchar(3) )
+                
+                select top {cant} cod_oper , periodo,codsede ,brigada,cod_oper + cast (periodo as varchar ) + codsede+ brigada pk   from sde.SEGM_BRIGADA_PERIODO a
+                where a.proc_croquis=0 and a.cod_oper = {cod_oper} 
+                order by 1
+                
+                insert @table
+                select top {cant} cod_oper , periodo,codsede ,brigada from sde.SEGM_BRIGADA_PERIODO a
+                where a.proc_croquis=0 and a.cod_oper = {cod_oper} 
+                order by 1
+
+                
+                update  a
+                set a.proc_croquis = 2
+                from sde.SEGM_BRIGADA_PERIODO a
+                where cod_oper + cast (periodo as varchar ) + codsede+ brigada in (select distinct cod_oper + cast (periodo as varchar ) + codsede+ brigada from @table) 
+    
+    """.format(cod_oper = cod_oper , cant = cant)
+    sedes = to_dict(cursor.execute(query_sedes))
+    return sedes
+
+
+def actualizar_flag_proc_croquis_brigada_periodo(cursor,cnn,pk,flag):
+    QUERY_ACTUALIZAR_FLAG_PROC_SEGM = """
+    begin
+    update a
+    set a.proc_croquis={flag}
+    from sde.SEGM_BRIGADA_PERIODO  a
+    where cod_oper + cast (periodo as varchar ) + codsede+ brigada ='{pk}'
+    end
+    """.format(pk=pk,flag=flag)
+    cursor.execute(QUERY_ACTUALIZAR_FLAG_PROC_SEGM)
+    cnn.commit()

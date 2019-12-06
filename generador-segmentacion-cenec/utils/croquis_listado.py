@@ -18,11 +18,12 @@ arcpy.env.outputCoordinateSystem = arcpy.SpatialReference(4326)
 
 COD_OPER='{}'.format(sys.argv[1])
 CODSEDE='{}'.format(sys.argv[2])
-PROGRAMACION = int(sys.argv[3])
-IMPORTAR_CAPAS = int(sys.argv[4])
-PROCESAR_CROQUIS =int (sys.argv[5])
-PROCESAR_LISTA_SEDE =int (sys.argv[6])
-PROCESAR_ETIQUETAS = int (sys.argv[7])
+BRIGADA='{}'.format(sys.argv[3])
+PROGRAMACION = int(sys.argv[4])
+IMPORTAR_CAPAS = int(sys.argv[5])
+PROCESAR_CROQUIS =int (sys.argv[6])
+PROCESAR_LISTA_SEDE =int (sys.argv[7])
+PROCESAR_ETIQUETAS = int (sys.argv[8])
 PERIODOS = [1]
 
 if COD_OPER != '90':
@@ -207,36 +208,16 @@ class CroquisListadoCENEC:
 
 
 
-    #def obtener_emp_ruta_periodo(self,ruta):
-    #    query = """  begin
-    #                                    SELECT * FROM sde.SEGM_RUTA_EMP_PERIODO
-    #                                    where CODSEDE = '{codsede}' AND RUTA ='{ruta}' AND COD_OPER='{cod_oper}'
-    #                                    order by CODSEDE,RUTA,EMP
-    #                 end
-    #                        """.format(codsede=ruta["CODSEDE"], ruta=ruta["RUTA"], cod_oper=ruta["COD_OPER"])
-    #    print 'obtener_emp_por_ruta>>>', query
-    #    empadronadores = to_dict(self.cursor.execute(query))
-    #    return empadronadores
 
-    def obtener_emp_ruta_periodo(self,cod_oper,codsede='07'):
+    def obtener_emp_ruta_periodo(self,brigada):
         query = """  begin
                                         SELECT A.*,B.SEDE_OPERATIVA FROM sde.SEGM_RUTA_EMP_PERIODO A 
-                                        
                                         INNER JOIN  sde.TB_SEDE_OPERATIVA B ON A.CODSEDE=B.CODSEDE  
-                                        where A.COD_OPER='{cod_oper}' and A.CODSEDE = '{codsede}'
-                                        AND ISNULL(A.PROC_CROQUIS,0)=0 
-                                        order by COD_OPER,CODSEDE,BRIGADA,RUTA,EMPADRONADOR DESC 
-                                            
-                                        
-                                        update a
-                                        set  a.proc_croquis = 1 
-                                        from sde.SEGM_RUTA_EMP_PERIODO a
-                                        where a.COD_OPER='{cod_oper}' and a.CODSEDE = '{codsede}'
-                                        AND ISNULL(a.PROC_CROQUIS,0)=0
-                                        
+                                        where a.cod_oper + cast (a.periodo as varchar ) + a.codsede+ a.brigada in ('{brigada}')
                      end
-                            """.format(cod_oper=cod_oper,codsede=codsede)
-        #print 'obtener_emp_por_ruta>>>', query
+                            """.format(brigada = brigada)
+        print 'obtener_emp_ruta_periodo>>>', query
+
         empadronadores = to_dict(self.cursor.execute(query))
         return empadronadores
 
@@ -248,10 +229,8 @@ class CroquisListadoCENEC:
                                 order by CODSEDE,RUTA,EMP
                             end
                     """.format(codsede=ruta["CODSEDE"], ruta=ruta["RUTA"] , cod_oper=ruta["COD_OPER"])
-        #print 'obtener_emp_por_ruta>>>',query
         empadronadores = to_dict(self.cursor.execute(query))
         return empadronadores
-
 
     def obtener_rutas_manzanas_por_brigada(self, brigada):
 
@@ -503,7 +482,7 @@ class CroquisListadoCENEC:
         return manzanas,mensaje_manzanas,cant_est
 
 
-    def procesar_croquis_listado(self,cod_oper='01',codsede='07',programacion=1,importar_capas=1,procesar_croquis=1,procesar_lista_sede=1,procesar_etiquetas=1):
+    def procesar_croquis_listado(self,cod_oper='01',codsede='07',brigada = '',programacion=1,importar_capas=1,procesar_croquis=1,procesar_lista_sede=1,procesar_etiquetas=1):
         operacion=self.obtener_operacion(cod_oper)
         self.cod_oper = cod_oper
 
@@ -527,7 +506,8 @@ class CroquisListadoCENEC:
         zonas = []
         brigada_out_etiquetas =[]
 
-        emp_ruta_periodo = self.obtener_emp_ruta_periodo(cod_oper=cod_oper,codsede=codsede)
+
+        emp_ruta_periodo = self.obtener_emp_ruta_periodo(brigada)
 
         brigadas_periodo = [{'COD_OPER':e[0],'CODSEDE':e[1],'BRIGADA':e[2],'PERIODO':e[3] ,'SEDE_OPERATIVA':e[4] }  for e in  list(set(( d['COD_OPER'],d['CODSEDE'],d['BRIGADA'] ,d['PERIODO'],d['SEDE_OPERATIVA']) for d in emp_ruta_periodo))]
 
@@ -1223,6 +1203,6 @@ class CroquisListadoCENEC:
 
 s = CroquisListadoCENEC()
 print 'procesando...'
-s.procesar_croquis_listado(cod_oper =COD_OPER,codsede=CODSEDE,programacion=PROGRAMACION,
+s.procesar_croquis_listado(cod_oper =COD_OPER,codsede=CODSEDE,programacion=PROGRAMACION,brigada = BRIGADA,
                            importar_capas=IMPORTAR_CAPAS ,procesar_croquis=PROCESAR_CROQUIS,
                            procesar_lista_sede=PROCESAR_LISTA_SEDE ,procesar_etiquetas=PROCESAR_ETIQUETAS)
