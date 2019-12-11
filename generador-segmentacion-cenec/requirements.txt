@@ -22,7 +22,7 @@ pyodbc==3.0.10
 pyparsing==1.5.7
 PyPDF2==1.26.0
 reportlab==3.4.0
-requests==2.18.4
+requests==2.20.0
 six==1.11.0
 tablib==0.11.4
 typing==3.6.6
