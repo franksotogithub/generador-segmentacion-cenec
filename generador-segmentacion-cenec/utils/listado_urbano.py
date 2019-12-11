@@ -19,6 +19,9 @@ import math
 from os import path
 from conf import config
 from datetime import datetime
+
+
+TIPO_FORMATO =1
 h1 = PS(
     name='Heading1',
     fontSize=7,
@@ -114,8 +117,8 @@ def cuerpo_hoja_listado_ruta(elementos,data,columnas,i,ancho=0.8):
     return n
 
 
-def listado_ruta(info, output):
-    #CANT_REG_PRIMERA_HOJA=36
+def listado_ruta(info, output,tipo_formato):
+    TIPO_FORMATO = tipo_formato
     CANT_REG_PRIMERA_HOJA = 24
     CANT_REG_SIGUIENTES_HOJAS = 32
     CANT_REG_SIGUIENTES_ULTIMA_HOJA = CANT_REG_SIGUIENTES_HOJAS - 2
@@ -136,7 +139,7 @@ def listado_ruta(info, output):
 
     Elementos = []
 
-    if cod_oper != '90':
+    if TIPO_FORMATO == 1:
         cab['TITULO'] = 'LISTADO DE CENTROS POBLADOS Y MANZANAS DEL EMPADRONADOR'
         cab['LABEL_B'] = 'B. NOMBRES Y APELLIDOS DEL EMPADRONADOR'
         cab['LABEL_BRIGADA'] = 'BRIGADA:'
@@ -322,7 +325,8 @@ def listado_ruta(info, output):
     return output
 
 
-def listado_brigada(info, output):
+def listado_brigada(info, output,tipo_formato):
+    TIPO_FORMATO = tipo_formato
     cab=info[0]
     data= info[1]
     coddpto = cab["CODSEDE"]
@@ -334,7 +338,7 @@ def listado_brigada(info, output):
     Plantilla = getSampleStyleSheet()
 
     Elementos = []
-    if cod_oper != '90':
+    if TIPO_FORMATO == 1 :
         cab['TITULO'] = 'LISTADO DE EMPADRONADORES POR MANZANAS Y ESTABLECIMIENTOS'
         cab['LABEL_B'] = 'B. NOMBRES Y APELLIDOS DEL JEFE DE BRIGADA'
         cab['LABEL_BRIGADA'] = 'BRIGADA:'

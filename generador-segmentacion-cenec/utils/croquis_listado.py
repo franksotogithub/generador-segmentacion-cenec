@@ -24,18 +24,8 @@ IMPORTAR_CAPAS = int(sys.argv[5])
 PROCESAR_CROQUIS =int (sys.argv[6])
 PROCESAR_LISTA_SEDE =int (sys.argv[7])
 PROCESAR_ETIQUETAS = int (sys.argv[8])
-PERIODOS = [1]
+PERIODOS = [3,4,5]
 
-if COD_OPER != '90':
-    COSTO_VIATICOS = 120.0
-    COSTO_MOV_LOCAL = 25.0
-    COSTO_MOV_LOCAL_BRIGADA = 30.0
-    COSTO_MOV_ESPECIAL = 50.0
-else:
-    COSTO_VIATICOS = 180.0
-    COSTO_MOV_LOCAL = 25.0
-    COSTO_MOV_LOCAL_BRIGADA = 30.0
-    COSTO_MOV_ESPECIAL = 50.0
 
 
 class CroquisListadoCENEC:
@@ -67,6 +57,7 @@ class CroquisListadoCENEC:
         self.centroides = []
         self.periodos = PERIODOS
         self.cod_oper = '01'
+        self.tipo_formato = 1
 
 
     def importar_capas(self, zonas,cod_oper='01'):
@@ -319,7 +310,16 @@ class CroquisListadoCENEC:
 
 
     def rellenando_datos_programacion(self,fila_prog,manzanas_prog,tipo = 1):
-
+        if self.tipo_formato == 1:
+            COSTO_VIATICOS = 120.0
+            COSTO_MOV_LOCAL = 25.0
+            COSTO_MOV_LOCAL_BRIGADA = 30.0
+            COSTO_MOV_ESPECIAL = 50.0
+        else:
+            COSTO_VIATICOS = 180.0
+            COSTO_MOV_LOCAL = 25.0
+            COSTO_MOV_LOCAL_BRIGADA = 30.0
+            COSTO_MOV_ESPECIAL = 50.0
 
         if len(manzanas_prog) > 1:
             fila_prog['MANZANAS'] = 'DEL {} AL {}'.format(manzanas_prog[0]['MZ'], manzanas_prog[-1]['MZ'])
@@ -452,7 +452,7 @@ class CroquisListadoCENEC:
 
     def get_mensaje_manzanas(self,filter_rutas_manzanas):
 
-        label='empadronamiento'  if self.cod_oper!='90' else 'registro'
+        label='empadronamiento'  if self.tipo_formato == 1 else 'registro'
 
         mensaje_manzanas = u'<BOL>OBSERVACIONES: </BOL>El area de {} comprende las manzanas '.format(label)
         manzanas = u""
@@ -486,6 +486,8 @@ class CroquisListadoCENEC:
         operacion=self.obtener_operacion(cod_oper)
         self.cod_oper = cod_oper
 
+        self.tipo_formato = int(operacion['TIPO_FORMATO'])
+
         self.path_base = path.join(config.BASE_DIR_CROQUIS_LISTADO,operacion['DESCRIPCION'])
         self.path_croquis_listado_ini = path.join(config.BASE_DIR_CROQUIS_LISTADO,operacion['DESCRIPCION'], r'croquis_listado')
         self.path_listado = path.join(config.BASE_DIR_CROQUIS_LISTADO,operacion['DESCRIPCION'], r'listado')
@@ -512,9 +514,11 @@ class CroquisListadoCENEC:
         brigadas_periodo = [{'COD_OPER':e[0],'CODSEDE':e[1],'BRIGADA':e[2],'PERIODO':e[3] ,'SEDE_OPERATIVA':e[4] }  for e in  list(set(( d['COD_OPER'],d['CODSEDE'],d['BRIGADA'] ,d['PERIODO'],d['SEDE_OPERATIVA']) for d in emp_ruta_periodo))]
 
         rutas_periodo =[ {'COD_OPER': e[0], 'CODSEDE': e[1], 'BRIGADA': e[2],'RUTA':e[3],'PERIODO':e[4],'SEDE_OPERATIVA':e[5]}
-            for e in list(set((d['COD_OPER'], d['CODSEDE'], d['BRIGADA'],d['RUTA'] , d['PERIODO']  ,d['SEDE_OPERATIVA']) for d in emp_ruta_periodo))]
+            for e in list(set((d['COD_OPER'], d['CODSEDE'], d['BRIGADA'],d['RUTA'] , d['PERIODO']  ,d['SEDE_OPERATIVA'])
+                              for d in emp_ruta_periodo))]
 
-        brigadas  =  [{'COD_OPER':e[0],'CODSEDE':e[1],'BRIGADA':e[2] ,'SEDE_OPERATIVA':e[3] }  for e in  list(set(( d['COD_OPER'],d['CODSEDE'],d['BRIGADA'] ,d['SEDE_OPERATIVA']) for d in brigadas_periodo))]
+        brigadas  =  [{'COD_OPER':e[0],'CODSEDE':e[1],'BRIGADA':e[2] ,'SEDE_OPERATIVA':e[3] }
+                      for e in  list(set(( d['COD_OPER'],d['CODSEDE'],d['BRIGADA'] ,d['SEDE_OPERATIVA']) for d in brigadas_periodo))]
 
         for brigada in brigadas:
             manzanas_brigada = self.obtener_rutas_manzanas_por_brigada(brigada)
@@ -544,6 +548,7 @@ class CroquisListadoCENEC:
                     and int(d['PERIODO']) in self.periodos
                     )))]
 
+
                 self.procesar_generacion_programacion(brigada,manzanas_brigada,rutas_emp)
 
         if(importar_capas == 1 and len(brigadas)>0):
@@ -555,28 +560,24 @@ class CroquisListadoCENEC:
 
                 output_periodo_etiquetas = path.join(self.path_etiquetas,'{cod_oper}{periodo}{codsede}.pdf'.format(cod_oper=cod_oper,periodo=periodo, codsede = codsede))
 
-
                 brigadas_periodo_t = [e for e in brigadas_periodo if (int(e['PERIODO']) == int(periodo))  ]
+
+                if path.exists(output_periodo_etiquetas):
+                    remove(output_periodo_etiquetas)
 
                 pdfDoc = arcpy.mapping.PDFDocumentCreate(output_periodo_etiquetas)
 
                 brigadas_periodo_sort = sorted (brigadas_periodo_t, key=lambda k: [k['BRIGADA']] )
-                print 'pdfDoc>>>',pdfDoc
 
                 for brigada_periodo in brigadas_periodo_sort:
                     rutas_emp_periodo = [e for e in emp_ruta_periodo if (
                                 e['CODSEDE'] == brigada_periodo['CODSEDE'] and e['BRIGADA'] == brigada_periodo['BRIGADA']
                                 and int(e['PERIODO']) == int(brigada_periodo['PERIODO']))]
-
                     rutas_temp = sorted(rutas_emp_periodo, key=lambda k: [k['RUTA'], k['EMPADRONADOR']])
                     data = [brigada_periodo]
                     data.extend(rutas_temp)
-
                     brigada_out_etiqueta = self.procesar_etiquetas(data)
-                    print 'brigada_out_etiqueta>>>',brigada_out_etiqueta
                     pdfDoc.appendPages(brigada_out_etiqueta)
-
-
                 pdfDoc.saveAndClose()
 
         for brigada in brigadas:
@@ -685,34 +686,13 @@ class CroquisListadoCENEC:
 
                                 manzanas,mensaje_manzanas,cant_est = self.get_mensaje_manzanas(filter_rutas_manzanas)
 
-                                #mensaje_manzanas = u'<BOL>OBSERVACIONES: </BOL>El area de empadronamiento comprende las manzanas '
-                                #manzanas = u""
-                                #for count, ruta_manzana in enumerate(filter_rutas_manzanas, 1):
-                                #    cant_est = cant_est + int(ruta_manzana['CANT_EST'])
-                                #if len(filter_rutas_manzanas) > 10:
-                                #    mensaje_manzanas = u"{} {} al {}".format(mensaje_manzanas, filter_rutas_manzanas[0]['MZ'],
-                                #                                             filter_rutas_manzanas[-1]['MZ'])
-                                #    manzanas = u"{} al {}".format(filter_rutas_manzanas[0]['MZ'], filter_rutas_manzanas[-1]['MZ'])
-                                #else:
-                                #    for count, ruta_manzana in enumerate(filter_rutas_manzanas, 1):
-                                #        if count == 1:
-                                #            manzanas = u"{}".format(ruta_manzana['MZ'])
-                                #        else:
-                                #            manzanas = u"{}-{}".format(manzanas, ruta_manzana['MZ'])
-                                #        if count == len(filter_rutas_manzanas):
-                                #            mensaje_manzanas = u"{} {}".format(mensaje_manzanas, ruta_manzana['MZ'])
-                                #        else:
-                                #            mensaje_manzanas = u"{} {},".format(mensaje_manzanas, ruta_manzana['MZ'])
-
-
-
                                 zona['MANZANAS'] = manzanas
                                 zona['CANT_EST'] = cant_est
                                 zona['FRASE'] = mensaje_manzanas
                                 zona['EMP'] = emp['EMPADRONADOR']
                                 zonax = dict.copy(zona)
                                 lista_emp_brigada_est.append(zonax)
-                            output_listado = listado_ruta(info, output)
+                            output_listado = listado_ruta(info, output, self.tipo_formato)
                             list_out_croquis = self.croquis_ruta(info, zonas_rutas_sorted_2,emp)
                             list_out_croquis.append(output_listado)
                             final_out_ruta = path.join(self.path_croquis_listado,'{cod_oper}-{periodo}-{sede}-{brigada}-{ruta}-{emp}.pdf'.format(
@@ -726,10 +706,7 @@ class CroquisListadoCENEC:
                                                                   cod_oper = ruta['COD_OPER'],
                                                                   codsede=ruta['CODSEDE'],
                                                                   brigada=ruta['BRIGADA'], ruta=ruta['RUTA']))
-                            #if path.exists(out_programacion_ruta):
-                            #    list_out_croquis.append(out_programacion_ruta)
-                            #else:
-                            #    print out_programacion_ruta
+
                             for el in list_out_croquis:
                                 pdfDoc_ruta.appendPages(el)
                             pdfDoc_ruta.saveAndClose()
@@ -744,8 +721,8 @@ class CroquisListadoCENEC:
 
                     lista_emp_brigada_est_s = sorted(lista_emp_brigada_est_o, key=lambda k: [k['RUTA'], k['EMP']])
 
-                    print('lista_emp_brigada_est_s>>>>',lista_emp_brigada_est_s)
-                    output_listado_brigada = listado_brigada([brigada_periodo, lista_emp_brigada_est_s], output_brigada)
+
+                    output_listado_brigada = listado_brigada([brigada_periodo, lista_emp_brigada_est_s], output_brigada,self.tipo_formato)
                     list_out_croquis_brigada = self.croquis_brigada([brigada_periodo, rutas_manzanas_brigada], zonas_brigada_sorted)
                     list_out_croquis_brigada.append(output_listado_brigada)
                     final_out_brigada= path.join(self.path_croquis_listado,'{cod_oper}-{periodo}-{sede}-{brigada}.pdf'.format(
@@ -932,7 +909,7 @@ class CroquisListadoCENEC:
                                            ["CANT_EST", '{}'.format(zona["CANT_EST"])], ["FRASE", zona["FRASE"]],
                                            ["PERIODO", '{}'.format(ruta["PERIODO"])]]
 
-            if self.cod_oper!= '90':
+            if self.tipo_formato == 1:
                 list_text_el = list_text_el + [["DOC", "DOC.CENEC.03.07A"],["TITULO", "CROQUIS DEL AREA DE EMPADRONAMIENTO"],
                                                ["LABEL_BRIGADA", "BRIGADA"],["LABEL_EMP", "EMP"]]
 
@@ -977,7 +954,7 @@ class CroquisListadoCENEC:
 
 
             list_out_croquis.append(out_croquis)
-            if self.cod_oper != '90':
+            if self.tipo_formato == 1:
                 list_text_el = list_text_el + [["DOC", "DOC.CENEC.03.07B"]]
                 for text_el in list_text_el:
                     el = arcpy.mapping.ListLayoutElements(mxd, "TEXT_ELEMENT", text_el[0])[0]
@@ -1172,7 +1149,7 @@ class CroquisListadoCENEC:
             list_text_el = list_text_el + [["BRIGADA", zona["BRIGADA"]], ["CANT_EST", '{}'.format(zona["CANT_EST"])],
                                            ["FRASE", zona["FRASE"]], ["PERIODO", '{}'.format(zona["PERIODO"])]]
 
-            if self.cod_oper != '90':
+            if self.tipo_formato ==1:
                 list_text_el = list_text_el + [["DOC", "DOC.CENEC.03.09"],["TITULO", "CROQUIS DEL AREA DE EMPADRONAMIENTO"],
                                                ["LABEL_BRIGADA", "BRIGADA"]]
             else:

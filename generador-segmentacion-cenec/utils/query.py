@@ -98,9 +98,8 @@ def actualizar_flag_proc_segm_distrito(cursor,cnn,ubigeo,flag,equipo='',error=''
 def obtener_sedes(cursor,cod_oper='01'):
     query_sedes="""
     select distinct a.codsede 
-    from [dbo].[SEGM_U_RUTA_MANZANA] a
-    inner join [sde].[SEGM_RUTA_EMP_PERIODO] b on a.CODSEDE = b.CODSEDE and a.COD_OPER = b.COD_OPER and a.BRIGADA =b.BRIGADA and a.RUTA = B.RUTA  and a.PERIODO =b.PERIODO 
-    WHERE a.COD_OPER='{cod_oper}' and isnull(b.PROC_CROQUIS,0) =0
+    from [sde].[SEGM_RUTA_EMP_PERIODO] a  
+    WHERE a.COD_OPER='{cod_oper}' 
     order by 1
     """.format(cod_oper= cod_oper)
     sedes = to_dict(cursor.execute(query_sedes))
@@ -112,19 +111,19 @@ def obtener_brigada_periodo(cursor,cod_oper='01',cant=1):
                 declare @table TABLE(cod_oper varchar(2), periodo int,codsede varchar(2),brigada varchar(3) )
                 
                 select top {cant} cod_oper , periodo,codsede ,brigada,cod_oper + cast (periodo as varchar ) + codsede+ brigada pk   from sde.SEGM_BRIGADA_PERIODO a
-                where a.proc_croquis=0 and a.cod_oper = {cod_oper} 
+                where ISNULL(a.proc_croquis,0)=0 and a.cod_oper = {cod_oper} 
                 order by 1
                 
                 insert @table
                 select top {cant} cod_oper , periodo,codsede ,brigada from sde.SEGM_BRIGADA_PERIODO a
-                where a.proc_croquis=0 and a.cod_oper = {cod_oper} 
+                where ISNULL(a.proc_croquis,0)=0 and a.cod_oper = {cod_oper} 
                 order by 1
 
-                
                 update  a
                 set a.proc_croquis = 2
                 from sde.SEGM_BRIGADA_PERIODO a
-                where cod_oper + cast (periodo as varchar ) + codsede+ brigada in (select distinct cod_oper + cast (periodo as varchar ) + codsede+ brigada from @table) 
+                where cod_oper + cast (periodo as varchar ) + codsede+ brigada in 
+                (select distinct cod_oper + cast (periodo as varchar ) + codsede+ brigada from @table) 
     
     """.format(cod_oper = cod_oper , cant = cant)
     sedes = to_dict(cursor.execute(query_sedes))

@@ -29,6 +29,7 @@ titleFill = PatternFill(start_color='D9D9D9',
 
 SHEEP='programacion'
 SHEEP_ETIQUETAS ='etiquetas'
+TIPO_FORMATO =1
 
 def abc(inicial, final):
     abc = list(string.ascii_uppercase)
@@ -199,15 +200,16 @@ def cabecera(data_cabecera,wb,filas):
     ws["B7"] = u'SEDE OPERATIVA'
     ws["E7"] = data_cabecera['CODSEDE']
     ws["F7"] = data_cabecera['SEDE_OPERATIVA']
-    if cod_oper != '90':
+    if TIPO_FORMATO == '90':
         ws["B8"] = u'BRIGADA'
     else:
         ws["B8"] = u'EQUIPO'
+
     ws["E8"] = data_cabecera['BRIGADA']
 
     if 'RUTA' in data_cabecera.keys() :
 
-        if cod_oper != '90':
+        if TIPO_FORMATO == 1:
             ws["B9"] = u'RUTA'
             ws["E9"] = data_cabecera['RUTA']
             ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL EMPADRONADOR'
@@ -222,11 +224,11 @@ def cabecera(data_cabecera,wb,filas):
             ws["B10"] = u'REGISTRADOR/A'
             ws["E10"] = data_cabecera['EMPADRONADOR']
             ws["N10"] = u'DOC.CENEC.03.23'
-            ws["N6"] = u'B. NOMBRE Y APELLIDO DEL EMPADRONADOR'
+            ws["N6"] = u'B. NOMBRE Y APELLIDO DEL REGISTRADOR/A'
 
 
     else:
-        if cod_oper != '90':
+        if TIPO_FORMATO == 1:
             ws["D4"] = u'PROGRAMACIÓN DE RUTA DEL JEFE DE BRIGADA'
             ws["N10"] = u'DOC.CENEC.03.12'
             ws["N6"] = u'B. NOMBRE Y APELLIDO DEL JEFE DE BRIGADA'
@@ -672,17 +674,32 @@ def llenar_excel_etiqueta(c, ws,x):
 
     i=x
 
-    #print 'c>>>',c
+    cod_oper=c['COD_OPER']
+
+
+
     ws["B{}".format(i)] = u'Sede'
+
     ws["C{}".format(i)] = u'{}'.format(c['SEDE_OPERATIVA'])
-    ws["D{}".format(i)] = u'Brigada'
+
+    if TIPO_FORMATO == 1:
+        ws["D{}".format(i)] = u'Brigada'
+    else:
+        ws["D{}".format(i)] = u'Equipo'
+
+
     ws["E{}".format(i)] = u'{}'.format(c['BRIGADA'])
     i = i+1
     if 'RUTA' in c.keys():
         ws["B{}".format(i)] = u'Ruta'
+        if TIPO_FORMATO ==1:
+
+            ws["D{}".format(i)] = u'Empadronador'
+
+        else:
+            ws["D{}".format(i)] = u'Registrador'
 
         ws["C{}".format(i)] = u'{}'.format(c['RUTA'])
-        ws["D{}".format(i)] = u'Empadronador'
         ws["E{}".format(i)] = u'{}'.format(c['EMPADRONADOR'])
         i = i + 1
 
@@ -737,7 +754,8 @@ def llenar_excel_etiqueta(c, ws,x):
 
     return i
 
-def crear_programacion_rutas(info,output):
+def crear_programacion_rutas(info,output,tipo_formato=1):
+    TIPO_FORMATO = tipo_formato
     cabecera=info[0]
     cuerpo = info[1]
     alto = len(cuerpo)
@@ -745,7 +763,8 @@ def crear_programacion_rutas(info,output):
     llenar_excel(info,output,alto)
     excel2PDF(output,sheep=SHEEP,orientacion=2)
 
-def crear_programacion_brigadas(info,output):
+def crear_programacion_brigadas(info,output,tipo_formato=1):
+    TIPO_FORMATO = tipo_formato
     cabecera = info[0]
     cuerpo = info[1]
     alto = len(cuerpo)
@@ -754,9 +773,9 @@ def crear_programacion_brigadas(info,output):
     excel2PDF(output,sheep=SHEEP,orientacion=2)
 
 
-def crear_etiquetas(data,output):
-
-    crear_excel_etiquetas( output)
+def crear_etiquetas(data,output,tipo_formato=1):
+    TIPO_FORMATO = tipo_formato
+    crear_excel_etiquetas(output)
 
     j=2
     wb = load_workbook(output)
