@@ -5,7 +5,7 @@ django-cors-headers==2.1.0
 django-extensions==1.9.6
 django-pyodbc==1.0.0
 django-pyodbc-azure==1.10.0.1
-djangorestframework==3.7.7
+djangorestframework==3.9.1
 enum34==1.1.6
 et-xmlfile==1.0.1
 idna==2.6
